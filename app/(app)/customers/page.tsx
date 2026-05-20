@@ -56,7 +56,7 @@ export default function CustomersPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-bold text-slate-900">Customers</h1>
+          <h1 className="text-xl font-bold text-slate-100">Customers</h1>
           <p className="text-xs text-slate-500 mt-0.5">{customers.length} total • {activeLeads} active leads</p>
         </div>
         <div className="flex items-center gap-2">
@@ -71,45 +71,45 @@ export default function CustomersPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div className="p-3 rounded-xl border border-slate-200/60 bg-white">
+        <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
           <div className="flex items-center gap-2 mb-1">
             <Users className="w-3.5 h-3.5 text-indigo-500" />
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Total</span>
           </div>
-          <p className="text-lg font-bold text-slate-900">{customers.length}</p>
+          <p className="text-lg font-bold text-slate-100">{customers.length}</p>
         </div>
-        <div className="p-3 rounded-xl border border-slate-200/60 bg-white">
+        <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
           <div className="flex items-center gap-2 mb-1">
             <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Active Leads</span>
           </div>
-          <p className="text-lg font-bold text-slate-900">{activeLeads}</p>
+          <p className="text-lg font-bold text-slate-100">{activeLeads}</p>
         </div>
-        <div className="p-3 rounded-xl border border-slate-200/60 bg-white">
+        <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
           <div className="flex items-center gap-2 mb-1">
             <CreditCard className="w-3.5 h-3.5 text-violet-500" />
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Avg Credit</span>
           </div>
-          <p className="text-lg font-bold text-slate-900">{avgCredit}</p>
+          <p className="text-lg font-bold text-slate-100">{avgCredit}</p>
         </div>
-        <div className="p-3 rounded-xl border border-slate-200/60 bg-white">
+        <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
           <div className="flex items-center gap-2 mb-1">
             <Star className="w-3.5 h-3.5 text-amber-500" />
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Prime+</span>
           </div>
-          <p className="text-lg font-bold text-slate-900">{customers.filter(c => c.creditScore >= 700).length}</p>
+          <p className="text-lg font-bold text-slate-100">{customers.filter(c => c.creditScore >= 700).length}</p>
         </div>
       </div>
 
       {/* Search + Filters */}
-      <Card className="border-slate-200/60 rounded-xl overflow-hidden">
+      <Card className="border-slate-700/50 rounded-xl overflow-hidden">
         <div className="p-4 space-y-3">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="pl-9 h-9 text-xs rounded-lg border-slate-200"
+              className="pl-9 h-9 text-xs rounded-lg border-slate-700"
               placeholder="Search by name, email, or phone..."
             />
           </div>
@@ -123,8 +123,7 @@ export default function CustomersPage() {
                 <SelectItem value="all">All Status</SelectItem>
                 <SelectItem value="Lead">Lead</SelectItem>
                 <SelectItem value="Active">Active</SelectItem>
-                <SelectItem value="Sold">Sold</SelectItem>
-                <SelectItem value="Lost">Lost</SelectItem>
+                <SelectItem value="Past Customer">Past Customer</SelectItem>
               </SelectContent>
             </Select>
 
@@ -160,7 +159,7 @@ export default function CustomersPage() {
               </Button>
             )}
 
-            <div className="ml-auto text-[11px] text-slate-400">
+            <div className="ml-auto text-[11px] text-slate-500">
               {filtered.length} customer{filtered.length !== 1 ? 's' : ''}
             </div>
           </div>
@@ -168,16 +167,16 @@ export default function CustomersPage() {
       </Card>
 
       {/* Customer Table */}
-      <Card className="border-slate-200/60 rounded-xl overflow-hidden">
+      <Card className="border-slate-700/50 rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-slate-50/80 border-b border-slate-100">
-                <th className="px-4 py-3 text-[10px] font-medium text-slate-400 uppercase tracking-wider">Customer</th>
-                <th className="px-4 py-3 text-[10px] font-medium text-slate-400 uppercase tracking-wider">Contact</th>
-                <th className="px-4 py-3 text-[10px] font-medium text-slate-400 uppercase tracking-wider">Credit</th>
-                <th className="px-4 py-3 text-[10px] font-medium text-slate-400 uppercase tracking-wider">Status</th>
-                <th className="px-4 py-3 text-[10px] font-medium text-slate-400 uppercase tracking-wider">Last Visit</th>
+              <tr className="bg-slate-800/80 border-b border-slate-700/50">
+                <th className="px-4 py-3 text-[10px] font-medium text-slate-500 uppercase tracking-wider">Customer</th>
+                <th className="px-4 py-3 text-[10px] font-medium text-slate-500 uppercase tracking-wider">Contact</th>
+                <th className="px-4 py-3 text-[10px] font-medium text-slate-500 uppercase tracking-wider">Credit</th>
+                <th className="px-4 py-3 text-[10px] font-medium text-slate-500 uppercase tracking-wider">Status</th>
+                <th className="px-4 py-3 text-[10px] font-medium text-slate-500 uppercase tracking-wider">Last Visit</th>
                 <th className="px-4 py-3"></th>
               </tr>
             </thead>
@@ -188,7 +187,7 @@ export default function CustomersPage() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: i * 0.02 }}
-                  className="hover:bg-slate-50/60 transition-colors group"
+                  className="hover:bg-slate-700/30 transition-colors group"
                 >
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2.5">
@@ -198,15 +197,15 @@ export default function CustomersPage() {
                         </span>
                       </div>
                       <div>
-                        <p className="text-xs font-medium text-slate-800 group-hover:text-indigo-700 transition-colors">{customer.name}</p>
-                        <p className="text-[9px] text-slate-400">{customer.id}</p>
+                        <p className="text-xs font-medium text-slate-200 group-hover:text-indigo-700 transition-colors">{customer.name}</p>
+                        <p className="text-[9px] text-slate-500">{customer.id}</p>
                       </div>
                     </div>
                   </td>
                   <td className="px-4 py-3">
                     <div className="space-y-0.5">
-                      <p className="text-[11px] text-slate-600 flex items-center gap-1.5"><Phone className="w-3 h-3 text-slate-300" />{customer.phone}</p>
-                      <p className="text-[11px] text-slate-600 flex items-center gap-1.5 truncate max-w-[180px]"><Mail className="w-3 h-3 text-slate-300" />{customer.email}</p>
+                      <p className="text-[11px] text-slate-500 flex items-center gap-1.5"><Phone className="w-3 h-3 text-slate-300" />{customer.phone}</p>
+                      <p className="text-[11px] text-slate-500 flex items-center gap-1.5 truncate max-w-[180px]"><Mail className="w-3 h-3 text-slate-300" />{customer.email}</p>
                     </div>
                   </td>
                   <td className="px-4 py-3">
@@ -224,7 +223,7 @@ export default function CustomersPage() {
                         customer.creditScore >= 600 ? "text-amber-700" : "text-red-700"
                       )}>{customer.creditScore}</span>
                     </div>
-                    <p className="text-[9px] text-slate-400 mt-0.5">
+                    <p className="text-[9px] text-slate-500 mt-0.5">
                       {customer.creditScore >= 750 ? 'Excellent' :
                        customer.creditScore >= 680 ? 'Good' :
                        customer.creditScore >= 600 ? 'Fair' : 'Sub-Prime'}
@@ -235,8 +234,8 @@ export default function CustomersPage() {
                       "text-[9px] h-5 px-1.5",
                       customer.status === 'Active' ? "text-emerald-600 border-emerald-200 bg-emerald-50" :
                       customer.status === 'Lead' ? "text-blue-600 border-blue-200 bg-blue-50" :
-                      customer.status === 'Sold' ? "text-violet-600 border-violet-200 bg-violet-50" :
-                      "text-slate-500 border-slate-200"
+                      customer.status === 'Past Customer' ? "text-violet-600 border-violet-200 bg-violet-50" :
+                      "text-slate-500 border-slate-700"
                     )}>{customer.status}</Badge>
                   </td>
                   <td className="px-4 py-3">
@@ -258,8 +257,8 @@ export default function CustomersPage() {
           {filtered.length === 0 && (
             <div className="p-12 text-center">
               <Search className="w-8 h-8 text-slate-200 mx-auto mb-2" />
-              <p className="text-xs font-medium text-slate-600">No customers match your filters</p>
-              <p className="text-[10px] text-slate-400 mt-0.5">Try adjusting your search criteria</p>
+              <p className="text-xs font-medium text-slate-500">No customers match your filters</p>
+              <p className="text-[10px] text-slate-500 mt-0.5">Try adjusting your search criteria</p>
             </div>
           )}
         </div>

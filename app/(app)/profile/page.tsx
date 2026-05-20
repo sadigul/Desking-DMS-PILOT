@@ -22,7 +22,7 @@ export default function ProfilePage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-xl font-bold text-slate-900">My Profile</h1>
+          <h1 className="text-xl font-bold text-slate-100">My Profile</h1>
           <p className="text-xs text-slate-500 mt-0.5">Manage your account and view performance</p>
         </div>
         <Button
@@ -37,7 +37,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Profile Card */}
-      <Card className="border-slate-200/60 rounded-xl overflow-hidden">
+      <Card className="border-slate-700/50 rounded-xl overflow-hidden">
         {/* Cover / Banner */}
         <div className="h-28 bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-700 relative">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZyIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIj48cGF0aCBkPSJNMCAwaDQwdjQwSDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNnKSIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiLz48L3N2Zz4=')] opacity-50"></div>
@@ -47,18 +47,18 @@ export default function ProfilePage() {
         <div className="px-5 pb-5 -mt-12 relative">
           <div className="flex flex-col sm:flex-row sm:items-end gap-4">
             <div className="relative">
-              <div className="w-24 h-24 rounded-2xl bg-white border-4 border-white shadow-lg flex items-center justify-center overflow-hidden">
+              <div className="w-24 h-24 rounded-2xl bg-slate-800/50 border-4 border-white shadow-lg flex items-center justify-center overflow-hidden">
                 <div className="w-full h-full bg-gradient-to-br from-indigo-100 to-violet-100 flex items-center justify-center">
                   <span className="text-2xl font-bold text-indigo-600">MW</span>
                 </div>
               </div>
-              <button className="absolute -bottom-1 -right-1 w-7 h-7 bg-white border-2 border-slate-200 rounded-lg flex items-center justify-center hover:bg-slate-50 transition-colors">
+              <button className="absolute -bottom-1 -right-1 w-7 h-7 bg-slate-800/50 border-2 border-slate-700 rounded-lg flex items-center justify-center hover:bg-slate-700/50 transition-colors">
                 <Camera className="w-3.5 h-3.5 text-slate-500" />
               </button>
             </div>
             <div className="flex-1 min-w-0 sm:pb-1">
               <div className="flex items-center gap-2 flex-wrap">
-                <h2 className="text-lg font-bold text-slate-900">Marcus Williams</h2>
+                <h2 className="text-lg font-bold text-slate-100">Marcus Williams</h2>
                 <Badge className="text-[9px] h-4 bg-indigo-50 text-indigo-700 border-indigo-200">F&I Director</Badge>
                 <Badge className="text-[9px] h-4 bg-emerald-50 text-emerald-700 border-emerald-200 gap-0.5"><CheckCircle2 className="w-2.5 h-2.5" />Verified</Badge>
               </div>
@@ -71,9 +71,9 @@ export default function ProfilePage() {
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
         {/* Left - Personal Info */}
         <div className="xl:col-span-5 space-y-4">
-          <Card className="border-slate-200/60 rounded-xl">
+          <Card className="border-slate-700/50 rounded-xl">
             <div className="p-4 border-b border-slate-100">
-              <h3 className="text-sm font-semibold text-slate-800">Personal Information</h3>
+              <h3 className="text-sm font-semibold text-slate-200">Personal Information</h3>
             </div>
             <CardContent className="p-4 space-y-3.5">
               <div className="space-y-1.5">
@@ -90,22 +90,22 @@ export default function ProfilePage() {
               </div>
               <div className="space-y-1.5">
                 <label className="text-[11px] font-medium text-slate-500">Role</label>
-                <Input defaultValue="F&I Director" disabled className="h-9 text-xs rounded-lg bg-slate-50" />
+                <Input defaultValue="F&I Director" disabled className="h-9 text-xs rounded-lg bg-slate-800/40" />
               </div>
               <div className="space-y-1.5">
                 <label className="text-[11px] font-medium text-slate-500">Employee ID</label>
-                <Input defaultValue="EMP-00214" disabled className="h-9 text-xs rounded-lg bg-slate-50" />
+                <Input defaultValue="EMP-00214" disabled className="h-9 text-xs rounded-lg bg-slate-800/40" />
               </div>
               <div className="space-y-1.5">
                 <label className="text-[11px] font-medium text-slate-500">Start Date</label>
-                <Input defaultValue="March 15, 2019" disabled className="h-9 text-xs rounded-lg bg-slate-50" />
+                <Input defaultValue="March 15, 2019" disabled className="h-9 text-xs rounded-lg bg-slate-800/40" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-slate-200/60 rounded-xl">
+          <Card className="border-slate-700/50 rounded-xl">
             <div className="p-4 border-b border-slate-100">
-              <h3 className="text-sm font-semibold text-slate-800">Permissions & Access</h3>
+              <h3 className="text-sm font-semibold text-slate-200">Permissions & Access</h3>
             </div>
             <CardContent className="p-4 space-y-2">
               {[
@@ -120,7 +120,7 @@ export default function ProfilePage() {
                 { label: 'System Configuration', granted: false },
               ].map((p, i) => (
                 <div key={i} className="flex items-center justify-between py-1.5">
-                  <span className="text-[11px] text-slate-700">{p.label}</span>
+                  <span className="text-[11px] text-slate-300">{p.label}</span>
                   {p.granted ? (
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
                   ) : (
@@ -135,9 +135,9 @@ export default function ProfilePage() {
         {/* Right - Performance */}
         <div className="xl:col-span-7 space-y-4">
           {/* Performance KPIs */}
-          <Card className="border-slate-200/60 rounded-xl">
+          <Card className="border-slate-700/50 rounded-xl">
             <div className="p-4 border-b border-slate-100">
-              <h3 className="text-sm font-semibold text-slate-800">Performance — May 2026</h3>
+              <h3 className="text-sm font-semibold text-slate-200">Performance — May 2026</h3>
             </div>
             <CardContent className="p-4">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -149,9 +149,9 @@ export default function ProfilePage() {
                 ].map((k, i) => (
                   <div key={i} className="p-3 rounded-xl border border-slate-100 text-center">
                     <k.icon className="w-4 h-4 text-indigo-500 mx-auto mb-1.5" />
-                    <p className="text-lg font-bold text-slate-900">{k.value}</p>
+                    <p className="text-lg font-bold text-slate-100">{k.value}</p>
                     <p className="text-[10px] text-slate-400 mt-0.5">{k.target}</p>
-                    <div className="h-1 bg-slate-100 rounded-full mt-2 overflow-hidden">
+                    <div className="h-1 bg-slate-700/50 rounded-full mt-2 overflow-hidden">
                       <div className={cn("h-full rounded-full", k.pct >= 100 ? "bg-emerald-500" : "bg-amber-500")} style={{ width: `${Math.min(k.pct, 100)}%` }} />
                     </div>
                   </div>
@@ -161,9 +161,9 @@ export default function ProfilePage() {
           </Card>
 
           {/* Certifications */}
-          <Card className="border-slate-200/60 rounded-xl">
+          <Card className="border-slate-700/50 rounded-xl">
             <div className="p-4 border-b border-slate-100">
-              <h3 className="text-sm font-semibold text-slate-800">Certifications & Training</h3>
+              <h3 className="text-sm font-semibold text-slate-200">Certifications & Training</h3>
             </div>
             <CardContent className="p-4 space-y-2.5">
               {[
@@ -179,7 +179,7 @@ export default function ProfilePage() {
                       <Award className={cn("w-3.5 h-3.5", c.active ? "text-emerald-500" : "text-amber-500")} />
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-slate-800">{c.name}</p>
+                      <p className="text-xs font-medium text-slate-200">{c.name}</p>
                       <p className="text-[10px] text-slate-400">{c.date}</p>
                     </div>
                   </div>
@@ -192,9 +192,9 @@ export default function ProfilePage() {
           </Card>
 
           {/* Recent Activity */}
-          <Card className="border-slate-200/60 rounded-xl">
+          <Card className="border-slate-700/50 rounded-xl">
             <div className="p-4 border-b border-slate-100">
-              <h3 className="text-sm font-semibold text-slate-800">Recent Activity</h3>
+              <h3 className="text-sm font-semibold text-slate-200">Recent Activity</h3>
             </div>
             <CardContent className="p-4 space-y-2">
               {[
@@ -208,7 +208,7 @@ export default function ProfilePage() {
                 <div key={i} className="flex items-start gap-2.5 py-2 border-b border-slate-50 last:border-0">
                   <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5 shrink-0"></div>
                   <div>
-                    <p className="text-[11px] text-slate-700">{a.action}</p>
+                    <p className="text-[11px] text-slate-300">{a.action}</p>
                     <p className="text-[10px] text-slate-400 mt-0.5">{a.time}</p>
                   </div>
                 </div>

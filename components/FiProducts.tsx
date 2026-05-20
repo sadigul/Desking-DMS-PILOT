@@ -77,7 +77,7 @@ export const FiProducts = ({ activeProducts, onToggleProduct, creditTier, vehicl
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-xl font-black text-slate-900 tracking-tight">F&I Protection Suite</h3>
+          <h3 className="text-xl font-black text-slate-100 tracking-tight">F&I Protection Suite</h3>
           <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Personalized Menu Selection</p>
         </div>
         <div className="flex items-center gap-2 bg-indigo-50 px-3 py-1.5 rounded-full border border-indigo-100">
@@ -99,7 +99,7 @@ export const FiProducts = ({ activeProducts, onToggleProduct, creditTier, vehicl
                 "relative group p-4 rounded-2xl border-2 transition-all cursor-pointer",
                 isActive 
                   ? "border-indigo-600 bg-indigo-50/50" 
-                  : "border-slate-100 bg-white hover:border-slate-200"
+                  : "border-slate-700/50 bg-slate-800/50 hover:border-slate-600"
               )}
               onClick={() => onToggleProduct(product.id)}
             >
@@ -113,7 +113,7 @@ export const FiProducts = ({ activeProducts, onToggleProduct, creditTier, vehicl
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <h4 className="font-black text-slate-900">{product.name}</h4>
+                      <h4 className="font-black text-slate-100">{product.name}</h4>
                       {product.recommended && (
                          <Badge className="bg-emerald-500 hover:bg-emerald-600 text-[9px] h-4 py-0 font-black uppercase">Expert Choice</Badge>
                       )}
@@ -125,7 +125,7 @@ export const FiProducts = ({ activeProducts, onToggleProduct, creditTier, vehicl
                 </div>
                 <div className="text-right flex flex-col items-end gap-2">
                    <div className="flex flex-col items-end">
-                      <span className="text-lg font-black text-slate-900">${product.price.toLocaleString()}</span>
+                      <span className="text-lg font-black text-slate-100">${product.price.toLocaleString()}</span>
                       <span className="text-[9px] font-bold text-slate-400 uppercase">One-time Fee</span>
                    </div>
                    <Switch 

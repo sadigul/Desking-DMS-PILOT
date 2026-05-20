@@ -55,7 +55,7 @@ export const DigitalDealJacket = ({ dealId, customerName }: DigitalDealJacketPro
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h3 className="text-xl font-black text-slate-900 tracking-tight">Digital Deal Jacket</h3>
-          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">DMSPilot eContracting Lifecycle</p>
+          <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">DMSPilot eContracting Lifecycle</p>
         </div>
         <div className="flex items-center gap-2">
            <Badge className={cn(
@@ -77,28 +77,28 @@ export const DigitalDealJacket = ({ dealId, customerName }: DigitalDealJacketPro
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="flex items-center justify-between p-4 rounded-xl border border-slate-100 bg-white hover:border-slate-200 group transition-all"
+            className="flex items-center justify-between p-4 rounded-xl border border-slate-700/50 bg-slate-800/50 hover:border-slate-600 group transition-all"
           >
             <div className="flex items-center gap-4">
                <div className={cn(
                  "w-10 h-10 rounded-lg flex items-center justify-center",
-                 doc.status === 'Approved' ? "bg-emerald-50 text-emerald-600" : "bg-slate-50 text-slate-400"
+                 doc.status === 'Approved' ? "bg-emerald-50 text-emerald-600" : "bg-slate-700/50 text-slate-400"
                )}>
                   <FileCheck className="w-5 h-5" />
                </div>
                <div>
                   <h4 className="text-sm font-bold text-slate-900">{doc.name}</h4>
                   <div className="flex items-center gap-2 mt-0.5">
-                     <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">{doc.category}</span>
+                     <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{doc.category}</span>
                      {doc.status === 'Approved' && <CheckCircle2 className="w-3 h-3 text-emerald-500" />}
                   </div>
                </div>
             </div>
             <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-               <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-indigo-600">
+               <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-indigo-600">
                   <Eye className="w-4 h-4" />
                </Button>
-               <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-emerald-600">
+               <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-emerald-600">
                   <Download className="w-4 h-4" />
                </Button>
             </div>
@@ -118,7 +118,7 @@ export const DigitalDealJacket = ({ dealId, customerName }: DigitalDealJacketPro
           <>
             <Button 
               variant="outline"
-              className="h-14 border-slate-200 text-slate-600 font-black text-xs uppercase tracking-widest rounded-2xl"
+              className="h-14 border-slate-700 text-slate-500 font-black text-xs uppercase tracking-widest rounded-2xl"
             >
               <History className="w-4 h-4 mr-2" /> Resend Link
             </Button>
@@ -135,16 +135,16 @@ export const DigitalDealJacket = ({ dealId, customerName }: DigitalDealJacketPro
           </Button>
         ) : (
           <div className="col-span-2 p-6 rounded-3xl bg-emerald-600 text-white text-center">
-             <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+             <div className="w-12 h-12 bg-slate-800/50/20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <CheckCircle2 className="w-6 h-6" />
              </div>
              <h4 className="text-xl font-black mb-1">Deal Jacket Executed</h4>
              <p className="text-xs font-semibold text-emerald-100">All compliance checks passed. Pushed to funding queue.</p>
              <div className="flex items-center justify-center gap-2 mt-4">
-                <Button variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20 border-none font-bold text-[10px] uppercase tracking-widest h-9 px-6 rounded-xl">
+                <Button variant="outline" className="bg-slate-800/50/10 border-white/20 text-white hover:bg-slate-800/50/20 border-none font-bold text-[10px] uppercase tracking-widest h-9 px-6 rounded-xl">
                    <CloudRain className="w-3 h-3 mr-2" /> Accelerated Funding
                 </Button>
-                <Button variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20 border-none font-bold text-[10px] uppercase tracking-widest h-9 px-6 rounded-xl">
+                <Button variant="outline" className="bg-slate-800/50/10 border-white/20 text-white hover:bg-slate-800/50/20 border-none font-bold text-[10px] uppercase tracking-widest h-9 px-6 rounded-xl">
                    <ShieldCheck className="w-3 h-3 mr-2" /> Compliance Jacketed
                 </Button>
              </div>

@@ -139,7 +139,7 @@ export default function LendersPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-bold text-slate-900">Lender Pre-Validation</h1>
+          <h1 className="text-xl font-bold text-slate-100">Lender Pre-Validation</h1>
           <p className="text-xs text-slate-500 mt-0.5">Catch red flags before submission — save $50 per rejected request</p>
         </div>
         <div className="flex items-center gap-2">
@@ -151,8 +151,8 @@ export default function LendersPage() {
       </div>
 
       {/* Deal + Lender Selection */}
-      <Card className="border-slate-200/60 rounded-xl overflow-hidden">
-        <div className="p-4 bg-gradient-to-r from-slate-50 to-white border-b border-slate-100">
+      <Card className="border-slate-700/50 rounded-xl overflow-hidden">
+        <div className="p-4 bg-gradient-to-r from-slate-50 to-white border-b border-slate-700/50">
           <div className="flex flex-col sm:flex-row sm:items-end gap-3">
             <div className="flex-1 grid sm:grid-cols-3 gap-3">
               <div className="space-y-1">
@@ -269,13 +269,13 @@ export default function LendersPage() {
                           )}
                           <div className="min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
-                              <span className="text-xs font-semibold text-slate-800">{check.label}</span>
+                              <span className="text-xs font-semibold text-slate-200">{check.label}</span>
                               <Badge variant="outline" className="text-[8px] h-4 px-1.5 text-red-600 border-red-200">{check.category}</Badge>
                               {resolvedChecks.has(check.id) && (
                                 <Badge className="text-[8px] h-4 px-1.5 bg-emerald-100 text-emerald-700 border-emerald-200">Resolved</Badge>
                               )}
                             </div>
-                            <p className="text-[11px] text-slate-600 mt-1 leading-relaxed">{check.message}</p>
+                            <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">{check.message}</p>
 
                             {/* AI Suggestion */}
                             {check.aiSuggestion && !resolvedChecks.has(check.id) && (
@@ -344,10 +344,10 @@ export default function LendersPage() {
                         <AlertTriangle className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
-                            <span className="text-xs font-semibold text-slate-800">{check.label}</span>
+                            <span className="text-xs font-semibold text-slate-200">{check.label}</span>
                             <Badge variant="outline" className="text-[8px] h-4 px-1.5 text-amber-600 border-amber-200">{check.category}</Badge>
                           </div>
-                          <p className="text-[11px] text-slate-600 mt-1 leading-relaxed">{check.message}</p>
+                          <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">{check.message}</p>
 
                           {check.aiSuggestion && (
                             <div className="mt-3 p-3 rounded-lg bg-gradient-to-r from-indigo-50 to-violet-50 border border-indigo-100">
@@ -383,26 +383,26 @@ export default function LendersPage() {
             )}
 
             {/* Passed Checks */}
-            <Card className="border-slate-200/60 rounded-xl overflow-hidden">
-              <div className="p-4 border-b border-slate-100 bg-gradient-to-r from-emerald-50/50 to-white">
+            <Card className="border-slate-700/50 rounded-xl overflow-hidden">
+              <div className="p-4 border-b border-slate-700/50 bg-gradient-to-r from-emerald-50/50 to-white">
                 <div className="flex items-center gap-2">
                   <div className="w-7 h-7 rounded-lg bg-emerald-100 flex items-center justify-center">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-slate-800">Passed Checks ({passes.length})</h3>
-                    <p className="text-[10px] text-slate-400">These meet lender requirements — no action needed</p>
+                    <h3 className="text-sm font-semibold text-slate-200">Passed Checks ({passes.length})</h3>
+                    <p className="text-[10px] text-slate-500">These meet lender requirements — no action needed</p>
                   </div>
                 </div>
               </div>
               <CardContent className="p-4">
                 <div className="grid sm:grid-cols-2 gap-2">
                   {passes.map((check) => (
-                    <div key={check.id} className="flex items-center gap-2 p-2.5 rounded-lg border border-slate-100 hover:border-emerald-200 transition-colors">
+                    <div key={check.id} className="flex items-center gap-2 p-2.5 rounded-lg border border-slate-700/50 hover:border-emerald-200 transition-colors">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                       <div className="min-w-0">
-                        <p className="text-[11px] font-medium text-slate-700 truncate">{check.label}</p>
-                        <p className="text-[9px] text-slate-400 truncate">{check.message}</p>
+                        <p className="text-[11px] font-medium text-slate-300 truncate">{check.label}</p>
+                        <p className="text-[9px] text-slate-500 truncate">{check.message}</p>
                       </div>
                     </div>
                   ))}
@@ -419,7 +419,7 @@ export default function LendersPage() {
                       <Brain className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-slate-800">Sara Deal Optimizer</h3>
+                      <h3 className="text-sm font-semibold text-slate-200">Sara Deal Optimizer</h3>
                       <p className="text-[10px] text-slate-500">Let Sara restructure this deal for maximum approval probability</p>
                     </div>
                   </div>
@@ -430,24 +430,24 @@ export default function LendersPage() {
               </div>
               <CardContent className="p-4">
                 <div className="grid sm:grid-cols-3 gap-3 mb-4">
-                  <div className="p-3 rounded-xl border border-slate-100 text-center">
+                  <div className="p-3 rounded-xl border border-slate-700/50 text-center">
                     <TrendingUp className="w-4 h-4 text-indigo-500 mx-auto mb-1.5" />
-                    <p className="text-lg font-bold text-slate-900">87%</p>
-                    <p className="text-[10px] text-slate-400">Current approval odds</p>
+                    <p className="text-lg font-bold text-slate-100">87%</p>
+                    <p className="text-[10px] text-slate-500">Current approval odds</p>
                   </div>
                   <div className="p-3 rounded-xl border border-emerald-100 bg-emerald-50/30 text-center">
                     <Zap className="w-4 h-4 text-emerald-500 mx-auto mb-1.5" />
                     <p className="text-lg font-bold text-emerald-700">96%</p>
                     <p className="text-[10px] text-emerald-500">After AI optimization</p>
                   </div>
-                  <div className="p-3 rounded-xl border border-slate-100 text-center">
+                  <div className="p-3 rounded-xl border border-slate-700/50 text-center">
                     <Clock className="w-4 h-4 text-violet-500 mx-auto mb-1.5" />
-                    <p className="text-lg font-bold text-slate-900">~4 hrs</p>
-                    <p className="text-[10px] text-slate-400">Estimated funding time</p>
+                    <p className="text-lg font-bold text-slate-100">~4 hrs</p>
+                    <p className="text-[10px] text-slate-500">Estimated funding time</p>
                   </div>
                 </div>
-                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100">
-                  <p className="text-[10px] font-semibold text-slate-600 uppercase tracking-wider mb-2.5">AI would restructure:</p>
+                <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50">
+                  <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-2.5">AI would restructure:</p>
                   <ul className="space-y-2">
                     {[
                       'Extend term from 60mo → 72mo (reduces PTI from 15.2% to 12.8%)',
@@ -459,7 +459,7 @@ export default function LendersPage() {
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <Lightbulb className="w-3 h-3 text-amber-500 mt-0.5 shrink-0" />
-                        <span className="text-[11px] text-slate-700 leading-relaxed">{item}</span>
+                        <span className="text-[11px] text-slate-300 leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -468,7 +468,7 @@ export default function LendersPage() {
             </Card>
 
             {/* Submit Bar */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 rounded-xl border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 rounded-xl border border-slate-700 bg-slate-800/50 shadow-lg shadow-slate-200/50">
               <div className="flex items-center gap-3">
                 {canSubmit ? (
                   <>
@@ -477,7 +477,7 @@ export default function LendersPage() {
                     </div>
                     <div>
                       <p className="text-xs font-semibold text-emerald-800">Ready to Submit</p>
-                      <p className="text-[10px] text-slate-400">All critical checks resolved — safe to send to lender</p>
+                      <p className="text-[10px] text-slate-500">All critical checks resolved — safe to send to lender</p>
                     </div>
                   </>
                 ) : (
@@ -487,7 +487,7 @@ export default function LendersPage() {
                     </div>
                     <div>
                       <p className="text-xs font-semibold text-red-800">Submission Blocked</p>
-                      <p className="text-[10px] text-slate-400">{unresolvedCritical.length} critical issue{unresolvedCritical.length > 1 ? 's' : ''} remaining — resolve to unlock submit</p>
+                      <p className="text-[10px] text-slate-500">{unresolvedCritical.length} critical issue{unresolvedCritical.length > 1 ? 's' : ''} remaining — resolve to unlock submit</p>
                     </div>
                   </>
                 )}

@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable} antialiased overflow-x-hidden`}>
-      <body className="font-sans overflow-x-hidden">{children}</body>
+    <html lang="en" className={`${inter.variable} ${outfit.variable} antialiased overflow-x-hidden dark`}>
+      <body className="font-sans overflow-x-hidden bg-[hsl(222,47%,6%)] text-slate-100">{children}</body>
     </html>
   );
 }
