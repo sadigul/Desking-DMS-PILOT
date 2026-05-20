@@ -1,0 +1,6 @@
+{
+  "name": "DMSPilot Desking",
+  "description": "Enterprise-grade Automotive F&I, Desking, and eContracting Lifecycle Platform",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
