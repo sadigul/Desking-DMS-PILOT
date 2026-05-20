@@ -87,7 +87,7 @@ export default function InventoryPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-bold text-slate-100">Vehicle Inventory</h1>
+          <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Vehicle Inventory</h1>
           <p className="text-xs text-slate-500 mt-0.5">{totalUnits} total units • {availableUnits} available</p>
         </div>
         <div className="flex items-center gap-2">
@@ -102,38 +102,38 @@ export default function InventoryPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
+        <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/50">
           <div className="flex items-center gap-2 mb-1">
             <Package className="w-3.5 h-3.5 text-indigo-500" />
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Total Units</span>
           </div>
-          <p className="text-lg font-bold text-slate-100">{totalUnits}</p>
+          <p className="text-lg font-bold text-slate-900 dark:text-slate-100">{totalUnits}</p>
         </div>
-        <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
+        <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/50">
           <div className="flex items-center gap-2 mb-1">
             <Car className="w-3.5 h-3.5 text-emerald-500" />
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Available</span>
           </div>
-          <p className="text-lg font-bold text-slate-100">{availableUnits}</p>
+          <p className="text-lg font-bold text-slate-900 dark:text-slate-100">{availableUnits}</p>
         </div>
-        <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
+        <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/50">
           <div className="flex items-center gap-2 mb-1">
             <DollarSign className="w-3.5 h-3.5 text-violet-500" />
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Total Value</span>
           </div>
-          <p className="text-lg font-bold text-slate-100">${(totalValue / 1000000).toFixed(1)}M</p>
+          <p className="text-lg font-bold text-slate-900 dark:text-slate-100">${(totalValue / 1000000).toFixed(1)}M</p>
         </div>
-        <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
+        <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/50">
           <div className="flex items-center gap-2 mb-1">
             <Clock className="w-3.5 h-3.5 text-amber-500" />
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Avg Days</span>
           </div>
-          <p className="text-lg font-bold text-slate-100">{avgDays}</p>
+          <p className="text-lg font-bold text-slate-900 dark:text-slate-100">{avgDays}</p>
         </div>
       </div>
 
       {/* Search + Filters */}
-      <Card className="border-slate-700/50 rounded-xl overflow-hidden">
+      <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl overflow-hidden">
         <div className="p-4 space-y-3">
           {/* Search Bar */}
           <div className="relative">
@@ -141,7 +141,7 @@ export default function InventoryPage() {
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="pl-9 h-9 text-xs rounded-lg border-slate-700"
+              className="pl-9 h-9 text-xs rounded-lg border-slate-200 dark:border-slate-700"
               placeholder="Search by VIN, Stock #, Year Make Model..."
             />
           </div>
@@ -217,11 +217,11 @@ export default function InventoryPage() {
       </Card>
 
       {/* Table */}
-      <Card className="border-slate-700/50 rounded-xl overflow-hidden">
+      <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-slate-800/80 border-b border-slate-700/50">
+              <tr className="bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700/50">
                 {[
                   { label: 'Stock #', field: 'id' as const },
                   { label: 'Vehicle', field: 'make' as const },
@@ -251,7 +251,7 @@ export default function InventoryPage() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: i * 0.015 }}
-                  className="hover:bg-slate-700/30 transition-colors group"
+                  className="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors group"
                 >
                   <td className="px-4 py-3">
                     <span className="text-xs font-semibold text-indigo-600">{v.id}</span>
@@ -259,17 +259,17 @@ export default function InventoryPage() {
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-lg bg-slate-800/40 border border-slate-700/50 flex items-center justify-center shrink-0">
+                      <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 flex items-center justify-center shrink-0">
                         <Car className="w-3.5 h-3.5 text-slate-500 group-hover:text-indigo-500 transition-colors" />
                       </div>
                       <div>
-                        <p className="text-xs font-medium text-slate-200 group-hover:text-indigo-700 transition-colors">{v.year} {v.make} {v.model}</p>
+                        <p className="text-xs font-medium text-slate-800 dark:text-slate-200 group-hover:text-indigo-700 transition-colors">{v.year} {v.make} {v.model}</p>
                         <p className="text-[10px] text-slate-500">{v.trim} • {v.color}</p>
                       </div>
                     </div>
                   </td>
                   <td className="px-4 py-3">
-                    <p className="text-xs font-semibold text-slate-200">${v.msrp.toLocaleString()}</p>
+                    <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">${v.msrp.toLocaleString()}</p>
                     <p className="text-[9px] text-slate-500">Inv: ${v.invoice?.toLocaleString() || '—'}</p>
                   </td>
                   <td className="px-4 py-3">
@@ -289,7 +289,7 @@ export default function InventoryPage() {
                     <VehicleStatusBadge status={v.status} />
                   </td>
                   <td className="px-4 py-3">
-                    <span className={cn("text-xs font-semibold", (v.daysInStock || 0) > 30 ? "text-red-600" : (v.daysInStock || 0) > 15 ? "text-amber-600" : "text-slate-200")}>
+                    <span className={cn("text-xs font-semibold", (v.daysInStock || 0) > 30 ? "text-red-600" : (v.daysInStock || 0) > 15 ? "text-amber-600" : "text-slate-800 dark:text-slate-200")}>
                       {v.daysInStock || 0}
                     </span>
                   </td>
@@ -306,7 +306,7 @@ export default function InventoryPage() {
           </table>
           {filtered.length === 0 && (
             <div className="p-12 text-center">
-              <Search className="w-8 h-8 text-slate-200 mx-auto mb-2" />
+              <Search className="w-8 h-8 text-slate-800 dark:text-slate-200 mx-auto mb-2" />
               <p className="text-xs font-medium text-slate-500">No vehicles match your filters</p>
               <p className="text-[10px] text-slate-500 mt-0.5">Try adjusting your search or clear filters</p>
             </div>

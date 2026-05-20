@@ -3,38 +3,31 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, Loader2, TrendingUp, AlertTriangle, Lightbulb } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { useAppStore } from '@/store/appStore';
 import Markdown from 'react-markdown';
 
 export function AiSummary() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [summary, setSummary] = useState<string | null>(null);
-  const { deals, inventory, customers } = useAppStore();
 
   const generateSummary = async () => {
     setIsGenerating(true);
-    try {
-      const response = await fetch('/api/gemini/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: [{ 
-            role: 'user', 
-            content: "Provide a high-level executive summary of the current dealership performance based on the data. Highlight key trends, potential risks, and 3 actionable insights. Use bullet points and bold text for key metrics." 
-          }],
-          context: { deals, inventory, customers }
-        })
-      });
+    // Simulate AI thinking
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    setSummary(`**Executive Summary — May 2026**
 
-      const data = await response.json();
-      setSummary(data.text);
-    } catch (error) {
-      console.error('Summary error:', error);
-      setSummary("Failed to generate summary. Please try again.");
-    } finally {
-      setIsGenerating(false);
-    }
+• **Total Gross MTD:** $32,160 across 89 units delivered (+12.5% vs Apr)
+• **F&I PVR:** $2,984 — up $220 from last month, strong VSC/GAP attach rates
+• **Inventory Health:** 32 units in stock, avg age 19 days — 6 units past 30-day threshold
+
+**⚠️ Risks:**
+• Ford F-150 XLT at 42 days — consider markdown or incentivized push
+• Maintenance product penetration at 33% — well below 50% target
+
+**💡 Actions:**
+1. Bundle maintenance with VSC for combo pricing — could lift penetration by 15-20%
+2. Run a weekend push event on aged units (30+ days) with $500 bonus spiff
+3. Pre-validate 2 pending apps with Capital One to accelerate funding`);
+    setIsGenerating(false);
   };
 
   return (

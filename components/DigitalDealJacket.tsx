@@ -77,7 +77,7 @@ export const DigitalDealJacket = ({ dealId, customerName }: DigitalDealJacketPro
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="flex items-center justify-between p-4 rounded-xl border border-slate-700/50 bg-slate-800/50 hover:border-slate-600 group transition-all"
+            className="flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-slate-800/50 hover:border-slate-600 group transition-all"
           >
             <div className="flex items-center gap-4">
                <div className={cn(

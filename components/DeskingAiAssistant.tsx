@@ -78,7 +78,7 @@ export function DeskingAiAssistant({ vehicle, creditTier, currentPrice, onApplyS
 
   return (
     <Card className="border-indigo-500/30 bg-slate-800/50 overflow-hidden">
-      <CardHeader className="bg-slate-800/40 border-b border-slate-700/50 py-3">
+      <CardHeader className="bg-slate-800/40 border-b border-slate-200 dark:border-slate-700/50 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center">
@@ -116,7 +116,7 @@ export function DeskingAiAssistant({ vehicle, creditTier, currentPrice, onApplyS
         ) : isGenerating ? (
           <div className="py-12 flex flex-col items-center justify-center space-y-3">
              <div className="relative">
-               <div className="w-12 h-12 rounded-full border-4 border-slate-700/50 border-t-indigo-600 animate-spin" />
+               <div className="w-12 h-12 rounded-full border-4 border-slate-200 dark:border-slate-700/50 border-t-indigo-600 animate-spin" />
                <Sparkles className="w-4 h-4 text-indigo-600 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
              </div>
              <p className="text-xs font-black text-indigo-600 uppercase tracking-widest animate-pulse">Computing Matrix...</p>
@@ -135,13 +135,13 @@ export function DeskingAiAssistant({ vehicle, creditTier, currentPrice, onApplyS
             </div>
 
             <div className="grid grid-cols-2 gap-3">
-               <div className="bg-slate-800/40 p-2.5 rounded-xl border border-slate-700/50">
+               <div className="bg-slate-800/40 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700/50">
                   <p className="text-[9px] font-black uppercase text-slate-400 mb-1">Rec. Price</p>
-                  <p className="text-sm font-black text-slate-100">${suggestion.price?.toLocaleString()}</p>
+                  <p className="text-sm font-black text-slate-900 dark:text-slate-100">${suggestion.price?.toLocaleString()}</p>
                </div>
-               <div className="bg-slate-800/40 p-2.5 rounded-xl border border-slate-700/50">
+               <div className="bg-slate-800/40 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700/50">
                   <p className="text-[9px] font-black uppercase text-slate-400 mb-1">Rec. APR</p>
-                  <p className="text-sm font-black text-slate-100">{suggestion.sellRate}%</p>
+                  <p className="text-sm font-black text-slate-900 dark:text-slate-100">{suggestion.sellRate}%</p>
                </div>
             </div>
 
@@ -156,7 +156,7 @@ export function DeskingAiAssistant({ vehicle, creditTier, currentPrice, onApplyS
                </div>
             </div>
 
-            <div className="space-y-1.5 border-t border-slate-700/50 pt-3">
+            <div className="space-y-1.5 border-t border-slate-200 dark:border-slate-700/50 pt-3">
                {suggestion.pros?.map((pro: string, i: number) => (
                  <div key={i} className="flex items-start gap-2 text-[11px] font-medium text-slate-600">
                     <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />

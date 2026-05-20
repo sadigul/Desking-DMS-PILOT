@@ -56,7 +56,7 @@ export default function CustomersPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-bold text-slate-100">Customers</h1>
+          <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Customers</h1>
           <p className="text-xs text-slate-500 mt-0.5">{customers.length} total • {activeLeads} active leads</p>
         </div>
         <div className="flex items-center gap-2">
@@ -71,38 +71,38 @@ export default function CustomersPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
+        <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/50">
           <div className="flex items-center gap-2 mb-1">
             <Users className="w-3.5 h-3.5 text-indigo-500" />
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Total</span>
           </div>
-          <p className="text-lg font-bold text-slate-100">{customers.length}</p>
+          <p className="text-lg font-bold text-slate-900 dark:text-slate-100">{customers.length}</p>
         </div>
-        <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
+        <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/50">
           <div className="flex items-center gap-2 mb-1">
             <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Active Leads</span>
           </div>
-          <p className="text-lg font-bold text-slate-100">{activeLeads}</p>
+          <p className="text-lg font-bold text-slate-900 dark:text-slate-100">{activeLeads}</p>
         </div>
-        <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
+        <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/50">
           <div className="flex items-center gap-2 mb-1">
             <CreditCard className="w-3.5 h-3.5 text-violet-500" />
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Avg Credit</span>
           </div>
-          <p className="text-lg font-bold text-slate-100">{avgCredit}</p>
+          <p className="text-lg font-bold text-slate-900 dark:text-slate-100">{avgCredit}</p>
         </div>
-        <div className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
+        <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/50">
           <div className="flex items-center gap-2 mb-1">
             <Star className="w-3.5 h-3.5 text-amber-500" />
             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Prime+</span>
           </div>
-          <p className="text-lg font-bold text-slate-100">{customers.filter(c => c.creditScore >= 700).length}</p>
+          <p className="text-lg font-bold text-slate-900 dark:text-slate-100">{customers.filter(c => c.creditScore >= 700).length}</p>
         </div>
       </div>
 
       {/* Search + Filters */}
-      <Card className="border-slate-700/50 rounded-xl overflow-hidden">
+      <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl overflow-hidden">
         <div className="p-4 space-y-3">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
@@ -167,11 +167,11 @@ export default function CustomersPage() {
       </Card>
 
       {/* Customer Table */}
-      <Card className="border-slate-700/50 rounded-xl overflow-hidden">
+      <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-slate-800/80 border-b border-slate-700/50">
+              <tr className="bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700/50">
                 <th className="px-4 py-3 text-[10px] font-medium text-slate-500 uppercase tracking-wider">Customer</th>
                 <th className="px-4 py-3 text-[10px] font-medium text-slate-500 uppercase tracking-wider">Contact</th>
                 <th className="px-4 py-3 text-[10px] font-medium text-slate-500 uppercase tracking-wider">Credit</th>
@@ -187,7 +187,7 @@ export default function CustomersPage() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: i * 0.02 }}
-                  className="hover:bg-slate-700/30 transition-colors group"
+                  className="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors group"
                 >
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2.5">
@@ -197,7 +197,7 @@ export default function CustomersPage() {
                         </span>
                       </div>
                       <div>
-                        <p className="text-xs font-medium text-slate-200 group-hover:text-indigo-700 transition-colors">{customer.name}</p>
+                        <p className="text-xs font-medium text-slate-800 dark:text-slate-200 group-hover:text-indigo-700 transition-colors">{customer.name}</p>
                         <p className="text-[9px] text-slate-500">{customer.id}</p>
                       </div>
                     </div>
@@ -256,7 +256,7 @@ export default function CustomersPage() {
           </table>
           {filtered.length === 0 && (
             <div className="p-12 text-center">
-              <Search className="w-8 h-8 text-slate-200 mx-auto mb-2" />
+              <Search className="w-8 h-8 text-slate-800 dark:text-slate-200 mx-auto mb-2" />
               <p className="text-xs font-medium text-slate-500">No customers match your filters</p>
               <p className="text-[10px] text-slate-500 mt-0.5">Try adjusting your search criteria</p>
             </div>

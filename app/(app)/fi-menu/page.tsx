@@ -170,7 +170,7 @@ export default function FIMenuPage() {
         <div className="flex items-center gap-3">
           <Button variant="ghost" size="sm" onClick={() => router.push('/desking')} className="h-8 w-8 p-0 rounded-lg"><ArrowLeft className="w-4 h-4" /></Button>
           <div>
-            <h1 className="text-xl font-bold text-slate-100">F&I Product Menu</h1>
+            <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">F&I Product Menu</h1>
             <p className="text-xs text-slate-500 mt-0.5">Protection packages & product selection with profit tracking</p>
           </div>
         </div>
@@ -193,9 +193,9 @@ export default function FIMenuPage() {
             { label: 'Monthly +', value: `$${totalMonthly.toFixed(0)}`, sub: '/mo impact' },
             { label: 'PVR', value: `$${totalProfit.toLocaleString()}`, sub: 'per vehicle' },
           ].map((k, i) => (
-            <div key={i} className={cn("p-2.5 rounded-xl border text-center", k.hl ? "bg-emerald-50 border-emerald-200" : "bg-slate-800/50 border-slate-700/50")}>
+            <div key={i} className={cn("p-2.5 rounded-xl border text-center", k.hl ? "bg-emerald-50 border-emerald-200" : "bg-white dark:bg-slate-800/50 border-slate-200 dark:border-slate-700/50")}>
               <p className="text-[10px] text-slate-500 font-medium">{k.label}</p>
-              <p className={cn("text-base font-bold mt-0.5", k.hl ? "text-emerald-700" : "text-slate-100")}>{k.value}</p>
+              <p className={cn("text-base font-bold mt-0.5", k.hl ? "text-emerald-700" : "text-slate-900 dark:text-slate-100")}>{k.value}</p>
               <p className="text-[10px] text-slate-500">{k.sub}</p>
             </div>
           ))}
@@ -211,7 +211,7 @@ export default function FIMenuPage() {
             { v: 'compare', l: 'Comparison' },
             ...(!presentationMode ? [{ v: 'analytics', l: 'Analytics' }] : []),
           ].map(t => (
-            <button key={t.v} onClick={() => setActiveTab(t.v)} className={cn("px-3 py-1.5 rounded-lg text-xs font-medium transition-all border", activeTab === t.v ? "bg-slate-900 text-white border-slate-900" : "bg-slate-800/50 text-slate-500 border-slate-700 hover:border-slate-600")}>{t.l}</button>
+            <button key={t.v} onClick={() => setActiveTab(t.v)} className={cn("px-3 py-1.5 rounded-lg text-xs font-medium transition-all border", activeTab === t.v ? "bg-slate-900 text-white border-slate-900" : "bg-slate-100 dark:bg-slate-800/50 text-slate-500 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600")}>{t.l}</button>
           ))}
         </div>
 
@@ -228,7 +228,7 @@ export default function FIMenuPage() {
 
               return (
                 <motion.div key={pkg.id} whileHover={{ y: -2 }} onClick={() => handleSelectPackage(pkg)} className="cursor-pointer">
-                  <Card className={cn("h-full border-2 rounded-xl overflow-hidden transition-all", isActive ? "border-indigo-400 shadow-lg shadow-indigo-100/50" : "border-slate-700/50 hover:border-slate-600")}>
+                  <Card className={cn("h-full border-2 rounded-xl overflow-hidden transition-all", isActive ? "border-indigo-400 shadow-lg shadow-indigo-100/50" : "border-slate-200 dark:border-slate-700/50 hover:border-slate-600")}>
                     <div className={cn("p-3.5 bg-gradient-to-br text-white", pkg.color)}>
                       <div className="flex items-center justify-between mb-1.5">
                         <h3 className="text-sm font-bold">{pkg.name}</h3>
@@ -250,11 +250,11 @@ export default function FIMenuPage() {
                           <span className="text-slate-500 line-through truncate">{p.name}</span>
                         </div>
                       ))}
-                      <div className="pt-2 border-t border-slate-700/50 mt-2 flex justify-between text-xs">
+                      <div className="pt-2 border-t border-slate-200 dark:border-slate-700/50 mt-2 flex justify-between text-xs">
                         <span className="text-slate-500">Total</span>
                         <div>
                           {pkg.discount > 0 && <span className="text-slate-500 line-through mr-1.5 text-[11px]">${pkgRetail.toLocaleString()}</span>}
-                          <span className="font-semibold text-slate-100">${finalPrice.toLocaleString()}</span>
+                          <span className="font-semibold text-slate-900 dark:text-slate-100">${finalPrice.toLocaleString()}</span>
                         </div>
                       </div>
                       {!presentationMode && (
@@ -275,7 +275,7 @@ export default function FIMenuPage() {
         <TabsContent value="menu" className="mt-0 space-y-4">
           <div className="flex items-center gap-1.5 flex-wrap">
             {categories.map(cat => (
-              <button key={cat} onClick={() => setFilterCategory(cat)} className={cn("px-2.5 py-1 rounded-md text-[11px] font-medium transition-all border", filterCategory === cat ? "bg-slate-900 text-white border-slate-900" : "bg-slate-800/50 text-slate-500 border-slate-700 hover:border-slate-600")}>
+              <button key={cat} onClick={() => setFilterCategory(cat)} className={cn("px-2.5 py-1 rounded-md text-[11px] font-medium transition-all border", filterCategory === cat ? "bg-slate-900 text-white border-slate-900" : "bg-slate-100 dark:bg-slate-800/50 text-slate-500 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600")}>
                 {cat === 'all' ? 'All' : cat}
               </button>
             ))}
@@ -288,12 +288,12 @@ export default function FIMenuPage() {
               const profit = p.retailPrice - p.dealerCost;
 
               return (
-                <Card key={p.id} className={cn("border-2 rounded-xl overflow-hidden transition-all cursor-pointer", active ? "border-indigo-400 bg-indigo-50/20" : "border-slate-700/50 hover:border-slate-600")} onClick={() => handleToggle(p.id)}>
+                <Card key={p.id} className={cn("border-2 rounded-xl overflow-hidden transition-all cursor-pointer", active ? "border-indigo-400 bg-indigo-50/20" : "border-slate-200 dark:border-slate-700/50 hover:border-slate-600")} onClick={() => handleToggle(p.id)}>
                   <CardContent className="p-3.5">
                     <div className="flex items-start justify-between mb-1.5">
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5 flex-wrap">
-                          <h4 className="text-xs font-semibold text-slate-100">{p.name}</h4>
+                          <h4 className="text-xs font-semibold text-slate-900 dark:text-slate-100">{p.name}</h4>
                           <Badge variant="outline" className="text-[9px] h-4 px-1">{p.category}</Badge>
                         </div>
                         <p className="text-[10px] text-slate-500 mt-0.5">{p.provider} • {p.term}</p>
@@ -315,9 +315,9 @@ export default function FIMenuPage() {
                       {p.coverageDetails.length > 4 && <p className="text-[10px] text-slate-500 pl-4">+{p.coverageDetails.length - 4} more</p>}
                     </div>
 
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-700/50">
+                    <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-700/50">
                       <div>
-                        <p className="text-sm font-bold text-slate-100">${p.retailPrice.toLocaleString()}</p>
+                        <p className="text-sm font-bold text-slate-900 dark:text-slate-100">${p.retailPrice.toLocaleString()}</p>
                         <p className="text-[10px] text-slate-500">+${monthly.toFixed(0)}/mo</p>
                       </div>
                       {!presentationMode && (
@@ -337,11 +337,11 @@ export default function FIMenuPage() {
 
         {/* COMPARISON */}
         <TabsContent value="compare" className="mt-0">
-          <Card className="border-slate-700/50 rounded-xl overflow-hidden">
+          <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl overflow-hidden">
             <div className="overflow-x-hidden">
               <div className="space-y-1 p-3">
                 {/* Header row */}
-                <div className="grid grid-cols-12 gap-2 text-[10px] font-semibold text-slate-500 pb-2 border-b border-slate-700/50 px-2">
+                <div className="grid grid-cols-12 gap-2 text-[10px] font-semibold text-slate-500 pb-2 border-b border-slate-200 dark:border-slate-700/50 px-2">
                   <div className="col-span-4">Product</div>
                   <div className="col-span-2">Term</div>
                   <div className="col-span-2 text-right">Price</div>
@@ -355,12 +355,12 @@ export default function FIMenuPage() {
                   return (
                     <div key={p.id} className={cn("grid grid-cols-12 gap-2 items-center py-2 px-2 rounded-lg text-xs", active && "bg-indigo-50/40")}>
                       <div className="col-span-4 min-w-0">
-                        <p className="font-medium text-slate-200 truncate">{p.name}</p>
+                        <p className="font-medium text-slate-800 dark:text-slate-200 truncate">{p.name}</p>
                         <p className="text-[10px] text-slate-500 truncate">{p.provider}</p>
                       </div>
                       <div className="col-span-2 text-slate-500 truncate text-[11px]">{p.term}</div>
                       <div className="col-span-2 text-right">
-                        <p className="font-medium text-slate-200">${p.retailPrice.toLocaleString()}</p>
+                        <p className="font-medium text-slate-800 dark:text-slate-200">${p.retailPrice.toLocaleString()}</p>
                         <p className="text-[10px] text-slate-500">+${calcMonthly(p.retailPrice).toFixed(0)}/mo</p>
                       </div>
                       {!presentationMode && <div className="col-span-2 text-right font-medium text-emerald-600">${(p.retailPrice - p.dealerCost).toLocaleString()}</div>}
@@ -377,7 +377,7 @@ export default function FIMenuPage() {
                 <div className="grid grid-cols-12 gap-2 items-center pt-2 border-t border-slate-700 px-2 font-semibold text-xs">
                   <div className="col-span-4 text-slate-300">{activeProducts.length} Selected</div>
                   <div className="col-span-2"></div>
-                  <div className="col-span-2 text-right text-slate-100">${totalRetail.toLocaleString()}</div>
+                  <div className="col-span-2 text-right text-slate-900 dark:text-slate-100">${totalRetail.toLocaleString()}</div>
                   {!presentationMode && <div className="col-span-2 text-right text-emerald-600">${totalProfit.toLocaleString()}</div>}
                   {!presentationMode && <div className="col-span-1"></div>}
                   <div className={cn(presentationMode ? "col-span-4" : "col-span-1")}></div>
@@ -397,10 +397,10 @@ export default function FIMenuPage() {
                 { label: 'GAP Penetration', value: '74%', change: '-2%', up: false },
                 { label: 'Products/Deal', value: '3.2', change: '+0.3', up: true },
               ].map((s, i) => (
-                <div key={i} className="p-3 rounded-xl border border-slate-700/50 bg-slate-800/50">
+                <div key={i} className="p-3 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-slate-800/50">
                   <p className="text-[10px] text-slate-500 font-medium">{s.label}</p>
                   <div className="flex items-end gap-2 mt-1">
-                    <p className="text-xl font-bold text-slate-100">{s.value}</p>
+                    <p className="text-xl font-bold text-slate-900 dark:text-slate-100">{s.value}</p>
                     <span className={cn("text-[11px] font-medium mb-0.5", s.up ? "text-emerald-600" : "text-red-500")}>{s.change}</span>
                   </div>
                 </div>
@@ -408,9 +408,9 @@ export default function FIMenuPage() {
             </div>
 
             {/* Penetration Chart */}
-            <Card className="border-slate-700/50 rounded-xl overflow-hidden">
-              <div className="p-3.5 border-b border-slate-700/50">
-                <h3 className="text-sm font-semibold text-slate-200">Product Penetration (30 Days)</h3>
+            <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl overflow-hidden">
+              <div className="p-3.5 border-b border-slate-200 dark:border-slate-700/50">
+                <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200">Product Penetration (30 Days)</h3>
               </div>
               <div className="p-3.5 space-y-2.5">
                 {products.sort((a, b) => b.penetrationRate - a.penetrationRate).map(p => (
@@ -428,34 +428,34 @@ export default function FIMenuPage() {
 
             {/* Chargebacks & Reserve */}
             <div className="grid sm:grid-cols-2 gap-3">
-              <Card className="border-slate-700/50 rounded-xl p-3.5">
-                <h3 className="text-sm font-semibold text-slate-200 mb-3">Chargebacks (MTD)</h3>
+              <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl p-3.5">
+                <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-3">Chargebacks (MTD)</h3>
                 <div className="space-y-2 text-xs">
                   <div className="flex justify-between"><span className="text-slate-500">VSC Cancellations</span><span className="text-red-600 font-medium">2 ($1,450)</span></div>
                   <div className="flex justify-between"><span className="text-slate-500">GAP Cancellations</span><span className="text-red-600 font-medium">1 ($295)</span></div>
                   <div className="flex justify-between"><span className="text-slate-500">Flat Cancel Refunds</span><span className="text-red-600 font-medium">$0</span></div>
-                  <div className="flex justify-between pt-2 border-t border-slate-700/50"><span className="font-medium text-slate-300">Total</span><span className="font-semibold text-red-600">$1,745</span></div>
+                  <div className="flex justify-between pt-2 border-t border-slate-200 dark:border-slate-700/50"><span className="font-medium text-slate-300">Total</span><span className="font-semibold text-red-600">$1,745</span></div>
                 </div>
               </Card>
-              <Card className="border-slate-700/50 rounded-xl p-3.5">
-                <h3 className="text-sm font-semibold text-slate-200 mb-3">Reserve Income (MTD)</h3>
+              <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl p-3.5">
+                <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-3">Reserve Income (MTD)</h3>
                 <div className="space-y-2 text-xs">
-                  <div className="flex justify-between"><span className="text-slate-500">Deals with Reserve</span><span className="font-medium text-slate-200">18 / 24</span></div>
-                  <div className="flex justify-between"><span className="text-slate-500">Avg Reserve/Deal</span><span className="font-medium text-slate-200">$412</span></div>
-                  <div className="flex justify-between"><span className="text-slate-500">Avg Markup (bps)</span><span className="font-medium text-slate-200">180 bps</span></div>
-                  <div className="flex justify-between pt-2 border-t border-slate-700/50"><span className="font-medium text-slate-300">Total Reserve</span><span className="font-semibold text-emerald-600">$7,416</span></div>
+                  <div className="flex justify-between"><span className="text-slate-500">Deals with Reserve</span><span className="font-medium text-slate-800 dark:text-slate-200">18 / 24</span></div>
+                  <div className="flex justify-between"><span className="text-slate-500">Avg Reserve/Deal</span><span className="font-medium text-slate-800 dark:text-slate-200">$412</span></div>
+                  <div className="flex justify-between"><span className="text-slate-500">Avg Markup (bps)</span><span className="font-medium text-slate-800 dark:text-slate-200">180 bps</span></div>
+                  <div className="flex justify-between pt-2 border-t border-slate-200 dark:border-slate-700/50"><span className="font-medium text-slate-300">Total Reserve</span><span className="font-semibold text-emerald-600">$7,416</span></div>
                 </div>
               </Card>
             </div>
 
             {/* Deal-level tracking */}
-            <Card className="border-slate-700/50 rounded-xl p-3.5">
-              <h3 className="text-sm font-semibold text-slate-200 mb-3">Recent Deals — F&I Performance</h3>
+            <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl p-3.5">
+              <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-3">Recent Deals — F&I Performance</h3>
               <div className="space-y-2">
                 {deals.slice(0, 5).map(d => (
-                  <div key={d.id} className="flex items-center justify-between text-xs p-2 rounded-lg border border-slate-700/50">
+                  <div key={d.id} className="flex items-center justify-between text-xs p-2 rounded-lg border border-slate-200 dark:border-slate-700/50">
                     <div className="min-w-0">
-                      <p className="font-medium text-slate-200 truncate">{d.customer} — {d.vehicle}</p>
+                      <p className="font-medium text-slate-800 dark:text-slate-200 truncate">{d.customer} — {d.vehicle}</p>
                       <p className="text-[10px] text-slate-500">{d.lender} • {d.type} • {d.status}</p>
                     </div>
                     <div className="text-right shrink-0 ml-3">

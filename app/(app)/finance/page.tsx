@@ -91,11 +91,11 @@ export default function FinancePage() {
       {/* Header */}
       <div className="page-header">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-display font-bold text-slate-100">Finance Pipeline</h1>
+          <h1 className="text-2xl sm:text-3xl font-display font-bold text-slate-900 dark:text-slate-100">Finance Pipeline</h1>
           <p className="text-slate-500 text-sm sm:text-base mt-1">Track deals from submission to funding.</p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <div className="flex items-center gap-0.5 p-1 bg-slate-700/50 rounded-lg border border-slate-700/50">
+          <div className="flex items-center gap-0.5 p-1 bg-slate-700/50 rounded-lg border border-slate-200 dark:border-slate-700/50">
             {(['All', 'Pending', 'Approved', 'Funded'] as const).map(f => (
               <button
                 key={f}
@@ -106,7 +106,7 @@ export default function FinancePage() {
               </button>
             ))}
           </div>
-          <div className="h-9 px-3 bg-slate-800/50 border border-slate-700/50 rounded-lg shadow-sm flex items-center gap-2">
+          <div className="h-9 px-3 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 rounded-lg shadow-sm flex items-center gap-2">
             <ArrowUpDown className="w-3.5 h-3.5 text-slate-500" />
             <select 
               value={sortBy}
@@ -181,11 +181,11 @@ export default function FinancePage() {
                        <StatusBadge status={deal.status} />
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-slate-700/50 flex items-center justify-center font-semibold text-slate-500 text-sm">
+                      <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-700/50 flex items-center justify-center font-semibold text-slate-500 text-sm">
                         {deal.customer[0]}
                       </div>
                       <div>
-                        <h3 className="font-medium text-slate-200 text-sm">{deal.customer}</h3>
+                        <h3 className="font-medium text-slate-800 dark:text-slate-200 text-sm">{deal.customer}</h3>
                         <p className="text-[11px] text-slate-500">{deal.vehicle}</p>
                       </div>
                     </div>
@@ -198,7 +198,7 @@ export default function FinancePage() {
                     <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border w-fit ${
                       deal.docStatus === 'Signed' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' :
                       deal.docStatus === 'Ready' ? 'bg-blue-50 text-blue-600 border-blue-100' :
-                      'bg-slate-800/40 text-slate-500 border-slate-700/50'
+                      'bg-slate-800/40 text-slate-500 border-slate-200 dark:border-slate-700/50'
                     }`}>
                       {deal.docStatus}
                     </span>
@@ -223,7 +223,7 @@ export default function FinancePage() {
                   <div className="flex items-center justify-between lg:justify-end gap-4 border-t lg:border-t-0 border-slate-50 pt-3 lg:pt-0">
                     <div className="text-right">
                        <p className="text-[11px] text-slate-500 mb-0.5">Amount</p>
-                       <p className="text-xl font-bold text-slate-100">${deal.amount.toLocaleString()}</p>
+                       <p className="text-xl font-bold text-slate-900 dark:text-slate-100">${deal.amount.toLocaleString()}</p>
                     </div>
                     <div className="flex items-center gap-1.5">
                       {deal.status !== 'Funded' && (

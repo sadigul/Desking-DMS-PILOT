@@ -187,25 +187,12 @@
     @apply font-display tracking-tight text-slate-900 dark:text-slate-100;
   }
 
-  /* Custom scrollbar - vertical only */
+  /* Hide scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 0px;
     height: 0px;
   }
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: hsl(220 13% 82%);
-    border-radius: 3px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(220 13% 70%);
-  }
-  .dark ::-webkit-scrollbar-thumb {
-    background: hsl(220 13% 25%);
-  }
-  .dark ::-webkit-scrollbar-thumb:hover {
-    background: hsl(220 13% 35%);
+  * {
+    scrollbar-width: none;
   }
 }

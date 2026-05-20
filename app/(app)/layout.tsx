@@ -7,6 +7,7 @@ import { LayoutDashboard, CarFront, Calculator, FileSignature, Users, BarChart3,
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/store/appStore";
 import { AiChat } from "@/components/AiChat";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function AppLayout({ children }: { children: ReactNode }) {
@@ -57,16 +58,16 @@ export default function AppLayout({ children }: { children: ReactNode }) {
   ];
 
   return (
-    <div className="min-h-screen bg-[hsl(222,47%,6%)] flex flex-col lg:flex-row font-sans text-slate-100 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[hsl(222,47%,6%)] flex flex-col lg:flex-row font-sans text-slate-900 dark:text-slate-100 overflow-x-hidden">
       {/* Mobile Header */}
-      <div className="lg:hidden sticky top-0 z-50 flex items-center justify-between h-14 px-4 bg-slate-900/90 backdrop-blur-xl border-b border-slate-700/40">
+      <div className="lg:hidden sticky top-0 z-50 flex items-center justify-between h-14 px-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200/40 dark:border-slate-700/40">
         <Link href="/dashboard" className="flex items-center gap-2.5">
-          <img src="https://www.dmspilot.com/logo.svg" alt="DMSPilot" className="h-8 w-auto brightness-0 invert" />
-          <span className="font-display font-extrabold text-base tracking-tight text-white">DMSPilot</span>
+          <img src="https://www.dmspilot.com/logo.svg" alt="DMSPilot" className="h-8 w-auto dark:brightness-0 dark:invert" />
+          <span className="font-display font-extrabold text-base tracking-tight text-slate-900 dark:text-white">DMSPilot</span>
         </Link>
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-          className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-slate-800 transition-colors"
+          className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
         >
           {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -88,7 +89,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
               animate={{ x: 0 }}
               exit={{ x: -280 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="lg:hidden fixed left-0 top-14 bottom-0 z-50 w-[260px] bg-slate-900 border-r border-slate-700/40 overflow-y-auto"
+              className="lg:hidden fixed left-0 top-14 bottom-0 z-50 w-[260px] bg-white dark:bg-slate-900 border-r border-slate-200/40 dark:border-slate-700/40 overflow-y-auto"
             >
               <nav className="p-3 space-y-1">
                 <p className="px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500">Sales Floor</p>
@@ -101,11 +102,11 @@ export default function AppLayout({ children }: { children: ReactNode }) {
                       className={cn(
                         "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all",
                         isActive 
-                          ? "bg-indigo-500/10 text-indigo-400" 
-                          : "text-slate-400 hover:bg-slate-800 hover:text-slate-200"
+                          ? "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400" 
+                          : "text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-200"
                       )}
                     >
-                      <item.icon className={cn("w-[18px] h-[18px]", isActive ? "text-indigo-400" : "text-slate-500")} />
+                      <item.icon className={cn("w-[18px] h-[18px]", isActive ? "text-indigo-600 dark:text-indigo-400" : "text-slate-500")} />
                       {item.label}
                     </Link>
                   );
@@ -120,11 +121,11 @@ export default function AppLayout({ children }: { children: ReactNode }) {
                       className={cn(
                         "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all",
                         isActive 
-                          ? "bg-indigo-500/10 text-indigo-400" 
-                          : "text-slate-400 hover:bg-slate-800 hover:text-slate-200"
+                          ? "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400" 
+                          : "text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-200"
                       )}
                     >
-                      <item.icon className={cn("w-[18px] h-[18px]", isActive ? "text-indigo-400" : "text-slate-500")} />
+                      <item.icon className={cn("w-[18px] h-[18px]", isActive ? "text-indigo-600 dark:text-indigo-400" : "text-slate-500")} />
                       {item.label}
                     </Link>
                   );
@@ -137,11 +138,11 @@ export default function AppLayout({ children }: { children: ReactNode }) {
 
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex w-[260px] flex-shrink-0 flex-col fixed inset-y-0 left-0 z-30 glass-sidebar">
-        <div className="h-16 flex items-center px-6 border-b border-slate-700/40">
+        <div className="h-16 flex items-center px-6 border-b border-slate-200/40 dark:border-slate-700/40">
           <Link href="/dashboard" className="flex items-center gap-3 group">
-            <img src="https://www.dmspilot.com/logo.svg" alt="DMSPilot" className="h-9 w-auto group-hover:scale-105 transition-transform duration-300 brightness-0 invert" />
+            <img src="https://www.dmspilot.com/logo.svg" alt="DMSPilot" className="h-9 w-auto group-hover:scale-105 transition-transform duration-300 dark:brightness-0 dark:invert" />
             <div className="flex flex-col">
-              <span className="font-display font-extrabold text-[15px] tracking-tight leading-none text-white">DMSPilot</span>
+              <span className="font-display font-extrabold text-[15px] tracking-tight leading-none text-slate-900 dark:text-white">DMSPilot</span>
               <span className="text-[9px] font-semibold text-indigo-400 tracking-[0.15em] uppercase mt-0.5">Workbench</span>
             </div>
           </Link>
@@ -158,15 +159,15 @@ export default function AppLayout({ children }: { children: ReactNode }) {
                 className={cn(
                   "flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group relative",
                   isActive 
-                    ? "bg-indigo-500/10 text-indigo-400 font-semibold" 
-                    : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
+                    ? "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-semibold" 
+                    : "text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-800/60 hover:text-slate-900 dark:hover:text-slate-200"
                 )}
               >
                 <div className={cn(
                   "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
-                  isActive ? "bg-indigo-500/15" : "bg-transparent group-hover:bg-slate-800"
+                  isActive ? "bg-indigo-500/15" : "bg-transparent group-hover:bg-slate-200 dark:group-hover:bg-slate-800"
                 )}>
-                  <item.icon className={cn("w-[18px] h-[18px]", isActive ? "text-indigo-400" : "text-slate-500 group-hover:text-slate-300")} />
+                  <item.icon className={cn("w-[18px] h-[18px]", isActive ? "text-indigo-600 dark:text-indigo-400" : "text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300")} />
                 </div>
                 <span className="text-[13px] font-medium">{item.label}</span>
                 {isActive && (
@@ -191,15 +192,15 @@ export default function AppLayout({ children }: { children: ReactNode }) {
                   className={cn(
                     "flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group relative",
                     isActive 
-                      ? "bg-indigo-500/10 text-indigo-400 font-semibold" 
-                      : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
+                      ? "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-semibold" 
+                      : "text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-800/60 hover:text-slate-900 dark:hover:text-slate-200"
                   )}
                 >
                   <div className={cn(
                     "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
-                    isActive ? "bg-indigo-500/15" : "bg-transparent group-hover:bg-slate-800"
+                    isActive ? "bg-indigo-500/15" : "bg-transparent group-hover:bg-slate-200 dark:group-hover:bg-slate-800"
                   )}>
-                    <item.icon className={cn("w-[18px] h-[18px]", isActive ? "text-indigo-400" : "text-slate-500 group-hover:text-slate-300")} />
+                    <item.icon className={cn("w-[18px] h-[18px]", isActive ? "text-indigo-600 dark:text-indigo-400" : "text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300")} />
                   </div>
                   <span className="text-[13px] font-medium">{item.label}</span>
                   {isActive && (
@@ -215,11 +216,11 @@ export default function AppLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
 
-        <div className="p-4 border-t border-slate-700/40">
-          <Link href="/profile" className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800/60 transition-colors cursor-pointer group">
+        <div className="p-4 border-t border-slate-200/40 dark:border-slate-700/40">
+          <Link href="/profile" className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-colors cursor-pointer group">
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center text-white font-semibold text-xs shadow-sm">MW</div>
             <div className="flex-1 min-w-0">
-              <p className="text-[13px] font-semibold text-slate-200 truncate">Marcus Williams</p>
+              <p className="text-[13px] font-semibold text-slate-800 dark:text-slate-200 truncate">Marcus Williams</p>
               <p className="text-[11px] text-slate-500 truncate">F&I Director</p>
             </div>
             <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-slate-400 transition-colors" />
@@ -243,10 +244,10 @@ export default function AppLayout({ children }: { children: ReactNode }) {
                   setIsSearchOpen(true);
                 }}
                 onFocus={() => setIsSearchOpen(true)}
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-800/50 border border-slate-700/60 rounded-xl text-sm text-slate-200 placeholder:text-slate-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-slate-800 focus:border-indigo-500/40 transition-all outline-none"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-100 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60 rounded-xl text-sm text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white dark:focus:bg-slate-800 focus:border-indigo-500/40 transition-all outline-none"
               />
               {searchQuery && (
-                <button onClick={() => setSearchQuery("")} className="absolute right-3 p-0.5 hover:bg-slate-700 rounded-md transition-colors">
+                <button onClick={() => setSearchQuery("")} className="absolute right-3 p-0.5 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-md transition-colors">
                   <X className="w-3.5 h-3.5 text-slate-500" />
                 </button>
               )}
@@ -259,7 +260,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.98 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 w-full mt-2 bg-slate-800 border border-slate-700/60 rounded-xl shadow-lg shadow-black/30 overflow-hidden z-[100]"
+                  className="absolute top-full left-0 w-full mt-2 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 rounded-xl shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden z-[100]"
                 >
                   <div className="p-3 border-b border-slate-700/60 flex items-center justify-between">
                     <span className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">Results</span>
@@ -271,14 +272,14 @@ export default function AppLayout({ children }: { children: ReactNode }) {
                         key={deal.id} 
                         href="/pipeline" 
                         onClick={() => setIsSearchOpen(false)}
-                        className="flex items-center justify-between px-4 py-3 hover:bg-slate-700/50 transition-colors group border-b border-slate-700/30 last:border-0"
+                        className="flex items-center justify-between px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors group border-b border-slate-100 dark:border-slate-700/30 last:border-0"
                       >
                         <div className="flex items-center gap-3">
-                          <div className="w-9 h-9 rounded-lg bg-slate-700 flex items-center justify-center font-semibold text-slate-300 text-sm">
+                          <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-semibold text-slate-600 dark:text-slate-300 text-sm">
                             {deal.customer[0]}
                           </div>
                           <div>
-                            <p className="text-sm font-medium text-slate-200 group-hover:text-indigo-400 transition-colors">{deal.customer}</p>
+                            <p className="text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{deal.customer}</p>
                             <p className="text-[11px] text-slate-500">{deal.id} · {deal.vehicle}</p>
                           </div>
                         </div>
@@ -295,7 +296,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
                   {filteredResults.length > 0 && (
                     <Link 
                       href="/pipeline" 
-                      className="block px-4 py-3 text-center text-xs font-medium text-indigo-400 hover:bg-slate-700/50 transition-colors border-t border-slate-700/60"
+                      className="block px-4 py-3 text-center text-xs font-medium text-indigo-600 dark:text-indigo-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors border-t border-slate-200 dark:border-slate-700/60"
                     >
                       View all results →
                     </Link>
@@ -306,17 +307,17 @@ export default function AppLayout({ children }: { children: ReactNode }) {
           </div>
           
           <div className="flex items-center gap-3">
-            <button className="relative w-9 h-9 flex items-center justify-center text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded-xl transition-all">
+            <button className="relative w-9 h-9 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-all">
               <Bell className="w-[18px] h-[18px]" />
-              <span className="absolute top-2 right-2 w-2 h-2 bg-indigo-500 rounded-full ring-2 ring-slate-900"></span>
+              <span className="absolute top-2 right-2 w-2 h-2 bg-indigo-500 rounded-full ring-2 ring-white dark:ring-slate-900"></span>
             </button>
-            <div className="w-px h-6 bg-slate-700/60"></div>
+            <div className="w-px h-6 bg-slate-200 dark:bg-slate-700/60"></div>
             <div className="flex items-center gap-3 pl-1 cursor-pointer group">
               <div className="text-right hidden xl:block">
-                <p className="text-sm font-medium text-slate-300 group-hover:text-indigo-400 transition-colors leading-tight">Marcus Williams</p>
+                <p className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-tight">Marcus Williams</p>
                 <p className="text-[11px] text-slate-500">F&I Director</p>
               </div>
-              <div className="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700/50 flex items-center justify-center overflow-hidden group-hover:border-indigo-500/50 transition-all">
+              <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 flex items-center justify-center overflow-hidden group-hover:border-indigo-500/50 transition-all">
                 <UserCircle className="w-6 h-6 text-slate-400" />
               </div>
             </div>

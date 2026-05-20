@@ -303,15 +303,15 @@ function DeskingContent() {
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div>
-            <h1 className="text-xl font-bold text-slate-100">Deal Workbench</h1>
+            <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Deal Workbench</h1>
             <p className="text-xs text-slate-500 mt-0.5">End-to-end deal structuring & lifecycle management</p>
           </div>
           <Badge className={cn("text-[10px] h-5", dealStatus === 'Approved' ? 'bg-emerald-100 text-emerald-700' : dealStatus === 'Submitted' ? 'bg-blue-100 text-blue-700' : 'bg-slate-700/50 text-slate-500')}>{dealStatus}</Badge>
         </div>
         <div className="flex items-center gap-2 flex-wrap">
-          <div className="bg-slate-700/50 p-0.5 rounded-lg flex border border-slate-700/50">
+          <div className="bg-slate-100 dark:bg-slate-700/50 p-0.5 rounded-lg flex border border-slate-200 dark:border-slate-700/50">
             {['Finance', 'Lease', 'Cash'].map(t => (
-              <button key={t} onClick={() => { setDealType(t as any); addLog(`Type → ${t}`); }} className={cn("px-3 py-1.5 rounded-md text-xs font-medium transition-all", dealType === t ? "bg-slate-800/50 text-slate-100 shadow-sm" : "text-slate-500 hover:text-slate-300")}>{t}</button>
+              <button key={t} onClick={() => { setDealType(t as any); addLog(`Type → ${t}`); }} className={cn("px-3 py-1.5 rounded-md text-xs font-medium transition-all", dealType === t ? "bg-white dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300")}>{t}</button>
             ))}
           </div>
           <Button variant="outline" size="sm" onClick={() => router.push('/fi-menu')} className="text-xs h-8 rounded-lg gap-1.5"><Package className="w-3.5 h-3.5" />F&I Menu</Button>
@@ -336,23 +336,23 @@ function DeskingContent() {
           {/* CUSTOMER + VEHICLE */}
           <div className="grid lg:grid-cols-2 gap-3">
             {/* Customer */}
-            <Card className="border-slate-700/50 rounded-xl overflow-hidden">
-              <div className="p-2.5 flex items-center justify-between border-b border-slate-700/50 bg-slate-800/40/50">
-                <span className="text-xs font-semibold text-slate-300 flex items-center gap-1.5"><Users className="w-3.5 h-3.5 text-slate-500" />Customer</span>
+            <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl overflow-hidden">
+              <div className="p-2.5 flex items-center justify-between border-b border-slate-200 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/40">
+                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5"><Users className="w-3.5 h-3.5 text-slate-500" />Customer</span>
                 <Button variant="ghost" size="sm" onClick={() => setIsCustomerOpen(!isCustomerOpen)} className="text-[11px] h-6 px-2">{selectedCustomer ? 'Change' : 'Select'}</Button>
               </div>
               <AnimatePresence>
                 {isCustomerOpen && (
-                  <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden border-b border-slate-700/50">
+                  <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden border-b border-slate-200 dark:border-slate-700/50">
                     <div className="p-2.5 space-y-2">
                       <div className="relative">
                         <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-500" />
                         <Input placeholder="Name, email, phone..." value={customerSearchQuery} onChange={(e) => setCustomerSearchQuery(e.target.value)} className="h-8 pl-8 text-xs rounded-lg" />
                       </div>
-                      <div className="max-h-36 overflow-y-auto divide-y divide-slate-50 rounded-lg border border-slate-700/50">
+                      <div className="max-h-36 overflow-y-auto divide-y divide-slate-50 rounded-lg border border-slate-200 dark:border-slate-700/50">
                         {filteredCustomers.map(c => (
                           <div key={c.id} onClick={() => handleSelectCustomer(c)} className="px-2.5 py-2 flex items-center justify-between hover:bg-indigo-50/50 cursor-pointer text-xs">
-                            <div className="min-w-0 truncate"><span className="font-medium text-slate-200">{c.name}</span><span className="text-slate-500 ml-2">{c.phone}</span></div>
+                            <div className="min-w-0 truncate"><span className="font-medium text-slate-800 dark:text-slate-200">{c.name}</span><span className="text-slate-500 ml-2">{c.phone}</span></div>
                             <Badge variant="outline" className="text-[10px] h-5 shrink-0 ml-2">{c.creditScore}</Badge>
                           </div>
                         ))}
@@ -366,7 +366,7 @@ function DeskingContent() {
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center text-white text-[11px] font-semibold shrink-0">{selectedCustomer.name.split(' ').map((n: string) => n[0]).join('')}</div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-slate-100 truncate">{selectedCustomer.name}</p>
+                      <p className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate">{selectedCustomer.name}</p>
                       <p className="text-[11px] text-slate-500 truncate">{selectedCustomer.email}</p>
                     </div>
                     <div className="text-right shrink-0">
@@ -387,14 +387,14 @@ function DeskingContent() {
             </Card>
 
             {/* Vehicle */}
-            <Card className="border-slate-700/50 rounded-xl overflow-hidden">
-              <div className="p-2.5 flex items-center justify-between border-b border-slate-700/50 bg-slate-800/40/50">
-                <span className="text-xs font-semibold text-slate-300 flex items-center gap-1.5"><Car className="w-3.5 h-3.5 text-slate-500" />Vehicle</span>
+            <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl overflow-hidden">
+              <div className="p-2.5 flex items-center justify-between border-b border-slate-200 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/40">
+                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5"><Car className="w-3.5 h-3.5 text-slate-500" />Vehicle</span>
                 <Button variant="ghost" size="sm" onClick={() => setIsInventoryOpen(!isInventoryOpen)} className="text-[11px] h-6 px-2">{selectedVehicle ? 'Change' : 'Search'}</Button>
               </div>
               <AnimatePresence>
                 {isInventoryOpen && (
-                  <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden border-b border-slate-700/50">
+                  <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden border-b border-slate-200 dark:border-slate-700/50">
                     <div className="p-2.5 space-y-2">
                       <div className="relative">
                         <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-500" />
@@ -421,13 +421,13 @@ function DeskingContent() {
                       {(filterYear || filterMake || filterModel || filterTrim) && (
                         <button onClick={() => { setFilterYear(''); setFilterMake(''); setFilterModel(''); setFilterTrim(''); }} className="text-[10px] text-indigo-600 font-medium">Clear filters</button>
                       )}
-                      <div className="max-h-36 overflow-y-auto divide-y divide-slate-50 rounded-lg border border-slate-700/50">
+                      <div className="max-h-36 overflow-y-auto divide-y divide-slate-50 rounded-lg border border-slate-200 dark:border-slate-700/50">
                         {filteredInventory.length === 0 && <div className="px-3 py-3 text-center text-[11px] text-slate-500">No vehicles match</div>}
                         {filteredInventory.slice(0, 10).map(v => (
                           <div key={v.id} onClick={() => handleSelectVehicle(v)} className="px-2.5 py-2 flex items-center justify-between hover:bg-indigo-50/50 cursor-pointer text-xs">
-                            <div className="min-w-0 truncate"><span className="font-medium text-slate-200">{v.year} {v.make} {v.model}</span><span className="text-slate-500 ml-1">{v.trim}</span></div>
+                            <div className="min-w-0 truncate"><span className="font-medium text-slate-800 dark:text-slate-200">{v.year} {v.make} {v.model}</span><span className="text-slate-500 ml-1">{v.trim}</span></div>
                             <div className="shrink-0 ml-2 text-right">
-                              <span className="font-semibold text-slate-300">${v.msrp.toLocaleString()}</span>
+                              <span className="font-semibold text-slate-700 dark:text-slate-300">${v.msrp.toLocaleString()}</span>
                               <span className={cn("ml-1.5 text-[10px]", daysColor(v.daysInStock))}>{v.daysInStock}d</span>
                             </div>
                           </div>
@@ -443,7 +443,7 @@ function DeskingContent() {
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center shrink-0"><Car className="w-4 h-4 text-indigo-600" /></div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-slate-100 truncate">{selectedVehicle.year} {selectedVehicle.make} {selectedVehicle.model}</p>
+                      <p className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate">{selectedVehicle.year} {selectedVehicle.make} {selectedVehicle.model}</p>
                       <p className="text-[11px] text-slate-500 truncate">{selectedVehicle.trim} • {selectedVehicle.color} • {selectedVehicle.stockType} • ...{selectedVehicle.vin.slice(-8)}</p>
                     </div>
                     <div className="text-right shrink-0">
@@ -465,16 +465,16 @@ function DeskingContent() {
           </div>
 
           {/* TABS */}
-          <Card className="border-slate-700/50 rounded-xl overflow-hidden">
+          <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl overflow-hidden">
             <Tabs value={activeTab} onValueChange={setActiveTab}>
-              <div className="border-b border-slate-700/50 bg-slate-800/40/50 px-2.5 py-2">
+              <div className="border-b border-slate-200 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/40 px-2.5 py-2">
                 <div className="flex gap-1 flex-wrap">
                   {[
                     { v: 'pricing', l: 'Pricing' }, { v: 'trade', l: 'Trade-In' },
                     { v: 'rates', l: 'Rates' }, { v: 'fees', l: 'Fees' },
                     { v: 'products', l: 'Products' }, { v: 'stips', l: 'Stips' }, { v: 'log', l: 'Activity' },
                   ].map(t => (
-                    <button key={t.v} onClick={() => setActiveTab(t.v)} className={cn("px-2.5 py-1.5 rounded-md text-[11px] font-medium transition-all whitespace-nowrap", activeTab === t.v ? "bg-slate-900 text-white" : "text-slate-500 hover:text-slate-300 hover:bg-slate-700/50")}>{t.l}</button>
+                    <button key={t.v} onClick={() => setActiveTab(t.v)} className={cn("px-2.5 py-1.5 rounded-md text-[11px] font-medium transition-all whitespace-nowrap", activeTab === t.v ? "bg-slate-900 text-white" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50")}>{t.l}</button>
                   ))}
                 </div>
               </div>
@@ -499,15 +499,15 @@ function DeskingContent() {
                 </div>
 
                 {/* Rebates */}
-                <div className="pt-3 border-t border-slate-700/50">
+                <div className="pt-3 border-t border-slate-200 dark:border-slate-700/50">
                   <p className="text-[11px] font-semibold text-slate-500 mb-2 flex items-center gap-1.5"><Zap className="w-3 h-3 text-amber-500" />Rebates & Incentives ({activeRebateIds.length} active = -${totalRebates.toLocaleString()})</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                     {rebates.map(r => {
                       const active = activeRebateIds.includes(r.id);
                       return (
-                        <div key={r.id} onClick={() => setActiveRebateIds(prev => active ? prev.filter(x => x !== r.id) : [...prev, r.id])} className={cn("p-2 rounded-lg border cursor-pointer transition-all text-xs", active ? "border-emerald-300 bg-emerald-50" : "border-slate-700/50 hover:border-slate-600")}>
+                        <div key={r.id} onClick={() => setActiveRebateIds(prev => active ? prev.filter(x => x !== r.id) : [...prev, r.id])} className={cn("p-2 rounded-lg border cursor-pointer transition-all text-xs", active ? "border-emerald-300 bg-emerald-50" : "border-slate-200 dark:border-slate-700/50 hover:border-slate-600")}>
                           <div className="flex items-center justify-between">
-                            <span className="font-medium text-slate-200 truncate">{r.name}</span>
+                            <span className="font-medium text-slate-800 dark:text-slate-200 truncate">{r.name}</span>
                             <div className={cn("w-4 h-4 rounded border flex items-center justify-center shrink-0", active ? "bg-emerald-600 border-emerald-600" : "border-slate-600")}>{active && <Check className="w-2.5 h-2.5 text-white" />}</div>
                           </div>
                           <div className="flex items-center justify-between mt-1">
@@ -521,7 +521,7 @@ function DeskingContent() {
                 </div>
 
                 {/* Scenarios */}
-                <div className="pt-3 border-t border-slate-700/50">
+                <div className="pt-3 border-t border-slate-200 dark:border-slate-700/50">
                   <p className="text-[11px] font-semibold text-slate-500 mb-2 flex items-center gap-1.5"><Target className="w-3 h-3 text-indigo-500" />Payment Scenarios</p>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     {[
@@ -531,9 +531,9 @@ function DeskingContent() {
                     ].map(s => {
                       const pmt = calcPayment(amountFinanced - s.down + cashDown, s.rate, s.term);
                       return (
-                        <div key={s.label} onClick={() => { setTerm(s.term); setSellRate(s.rate); setCashDown(s.down); addLog(`Scenario: ${s.label}`); }} className="p-3 rounded-lg border border-slate-700/50 hover:border-indigo-300 cursor-pointer group">
+                        <div key={s.label} onClick={() => { setTerm(s.term); setSellRate(s.rate); setCashDown(s.down); addLog(`Scenario: ${s.label}`); }} className="p-3 rounded-lg border border-slate-200 dark:border-slate-700/50 hover:border-indigo-300 cursor-pointer group">
                           <p className="text-[10px] font-medium text-slate-500">{s.label}</p>
-                          <p className="text-lg font-bold text-slate-100 group-hover:text-indigo-600">${pmt.toFixed(0)}<span className="text-xs font-normal text-slate-500">/mo</span></p>
+                          <p className="text-lg font-bold text-slate-900 dark:text-slate-100 group-hover:text-indigo-600">${pmt.toFixed(0)}<span className="text-xs font-normal text-slate-500">/mo</span></p>
                           <p className="text-[10px] text-slate-500">{s.term}mo • {s.rate}% • ${s.down.toLocaleString()} dn</p>
                         </div>
                       );
@@ -568,7 +568,7 @@ function DeskingContent() {
                   <div className="space-y-1.5"><label className="text-[11px] font-medium text-slate-500">Payoff Lender</label><Input value={tradePayoffLender} onChange={(e) => setTradePayoffLender(e.target.value)} className="h-9 text-xs rounded-lg" placeholder="Chase" /></div>
                   <div className="space-y-1.5"><label className="text-[11px] font-medium text-slate-500">Good Through</label><Input type="date" value={tradePayoffGoodThru} onChange={(e) => setTradePayoffGoodThru(e.target.value)} className="h-9 text-xs rounded-lg" /></div>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 pt-3 border-t border-slate-700/50">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 pt-3 border-t border-slate-200 dark:border-slate-700/50">
                   <StatBox label="Net Trade" value={netTrade} colored />
                   <StatBox label="Equity" value={tradeAcv - tradePayoff} colored />
                   <StatBox label="Over-Allow" value={tradeAllowance - tradeAcv} colored reverse />
@@ -604,16 +604,16 @@ function DeskingContent() {
                 </div>
 
                 {/* Lenders */}
-                <div className="pt-3 border-t border-slate-700/50 space-y-1.5">
+                <div className="pt-3 border-t border-slate-200 dark:border-slate-700/50 space-y-1.5">
                   <p className="text-[11px] font-semibold text-slate-500 flex items-center gap-1.5"><Building2 className="w-3 h-3" />Lenders ({qualifiedLenders.length} qualified)</p>
                   {lenderPrograms.map(l => {
                     const qualified = (selectedCustomer?.creditScore || 700) >= l.minScore;
                     const selected = selectedLender === l.name;
                     return (
-                      <div key={l.id} className={cn("p-2.5 rounded-lg border flex items-center gap-2 text-xs transition-all", !qualified && "opacity-35", selected ? "border-indigo-300 bg-indigo-50/50" : "border-slate-700/50")}>
+                      <div key={l.id} className={cn("p-2.5 rounded-lg border flex items-center gap-2 text-xs transition-all", !qualified && "opacity-35", selected ? "border-indigo-300 bg-indigo-50/50" : "border-slate-200 dark:border-slate-700/50")}>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-1.5 flex-wrap">
-                            <span className="font-medium text-slate-200">{l.name}</span>
+                            <span className="font-medium text-slate-800 dark:text-slate-200">{l.name}</span>
                             {l.hasReserve && <Badge className="text-[9px] h-4 bg-amber-100 text-amber-700 border-0">Reserve</Badge>}
                           </div>
                           <p className="text-[10px] text-slate-500 mt-0.5 truncate">{l.tier} • Buy {l.buyRate}% • Max {l.maxAdvance}%/{l.maxTerm}mo • Min {l.minScore}</p>
@@ -638,7 +638,7 @@ function DeskingContent() {
                 <div className="space-y-2">
                   {fees.map((f, i) => (
                     <div key={f.id} className="flex items-center gap-3 text-xs">
-                      <span className="w-32 font-medium text-slate-300 truncate">{f.name}</span>
+                      <span className="w-32 font-medium text-slate-700 dark:text-slate-300 truncate">{f.name}</span>
                       <Input type="number" value={f.amount} onChange={(e) => { const nf = [...fees]; nf[i].amount = Number(e.target.value); setFees(nf); }} className="h-7 w-20 text-xs rounded-md" />
                       <label className="flex items-center gap-1 text-[11px] text-slate-500 cursor-pointer whitespace-nowrap">
                         <input type="checkbox" checked={f.taxable} onChange={(e) => { const nf = [...fees]; nf[i].taxable = e.target.checked; setFees(nf); }} className="rounded border-slate-600 w-3.5 h-3.5" />Taxable
@@ -646,7 +646,7 @@ function DeskingContent() {
                     </div>
                   ))}
                 </div>
-                <div className="flex items-center justify-between pt-3 border-t border-slate-700/50 text-xs font-semibold text-slate-300">
+                <div className="flex items-center justify-between pt-3 border-t border-slate-200 dark:border-slate-700/50 text-xs font-semibold text-slate-700 dark:text-slate-300">
                   <span>Total Fees: ${totalFees.toLocaleString()}</span>
                   <span>Tax: ${totalTax.toFixed(2)}</span>
                 </div>
@@ -663,13 +663,13 @@ function DeskingContent() {
                     const active = activeProductIds.includes(p.id);
                     const impact = calcPayment(p.price, sellRate, term);
                     return (
-                      <div key={p.id} onClick={() => setActiveProductIds(prev => active ? prev.filter(x => x !== p.id) : [...prev, p.id])} className={cn("p-2.5 rounded-lg border cursor-pointer transition-all", active ? "border-indigo-300 bg-indigo-50/30" : "border-slate-700/50 hover:border-slate-600")}>
+                      <div key={p.id} onClick={() => setActiveProductIds(prev => active ? prev.filter(x => x !== p.id) : [...prev, p.id])} className={cn("p-2.5 rounded-lg border cursor-pointer transition-all", active ? "border-indigo-300 bg-indigo-50/30" : "border-slate-200 dark:border-slate-700/50 hover:border-slate-600")}>
                         <div className="flex items-start justify-between text-xs">
-                          <div className="min-w-0"><p className="font-semibold text-slate-200 truncate">{p.name}</p><p className="text-[10px] text-slate-500">{p.provider} • {p.term}</p></div>
+                          <div className="min-w-0"><p className="font-semibold text-slate-800 dark:text-slate-200 truncate">{p.name}</p><p className="text-[10px] text-slate-500">{p.provider} • {p.term}</p></div>
                           <div className={cn("w-4 h-4 rounded border flex items-center justify-center shrink-0 ml-2", active ? "bg-indigo-600 border-indigo-600" : "border-slate-600")}>{active && <Check className="w-2.5 h-2.5 text-white" />}</div>
                         </div>
-                        <div className="flex items-center justify-between mt-1.5 pt-1.5 border-t border-slate-700/50 text-[11px]">
-                          <span className="font-medium text-slate-300">${p.price.toLocaleString()}</span>
+                        <div className="flex items-center justify-between mt-1.5 pt-1.5 border-t border-slate-200 dark:border-slate-700/50 text-[11px]">
+                          <span className="font-medium text-slate-700 dark:text-slate-300">${p.price.toLocaleString()}</span>
                           <span className="text-slate-500">+${impact.toFixed(0)}/mo</span>
                           <span className="text-emerald-600">GP ${(p.price - p.cost).toLocaleString()}</span>
                         </div>
@@ -684,12 +684,12 @@ function DeskingContent() {
                 <p className="text-[11px] font-semibold text-slate-500 flex items-center gap-1.5"><FileText className="w-3 h-3" />Stipulations</p>
                 <div className="space-y-1.5">
                   {stips.map((s, i) => (
-                    <div key={s.id} className="flex items-center justify-between p-2 rounded-lg border border-slate-700/50 text-xs gap-2">
+                    <div key={s.id} className="flex items-center justify-between p-2 rounded-lg border border-slate-200 dark:border-slate-700/50 text-xs gap-2">
                       <div className="flex items-center gap-2 min-w-0">
                         <div className={cn("w-4 h-4 rounded-full flex items-center justify-center shrink-0", s.status === 'Received' ? "bg-emerald-100" : s.status === 'Waived' ? "bg-slate-700/50" : "bg-amber-100")}>
                           {s.status === 'Received' ? <Check className="w-2.5 h-2.5 text-emerald-600" /> : s.status === 'Waived' ? <X className="w-2.5 h-2.5 text-slate-500" /> : <Clock className="w-2.5 h-2.5 text-amber-600" />}
                         </div>
-                        <span className="text-slate-300 truncate">{s.label}</span>
+                        <span className="text-slate-700 dark:text-slate-300 truncate">{s.label}</span>
                       </div>
                       <Select value={s.status} onValueChange={(v) => { const ns = [...stips]; ns[i].status = v as any; setStips(ns); addLog(`Stip: ${s.label} → ${v}`); }}>
                         <SelectTrigger className="h-6 w-20 text-[10px] rounded shrink-0"><SelectValue /></SelectTrigger>
@@ -698,7 +698,7 @@ function DeskingContent() {
                     </div>
                   ))}
                 </div>
-                <div className="pt-3 border-t border-slate-700/50">
+                <div className="pt-3 border-t border-slate-200 dark:border-slate-700/50">
                   <Textarea placeholder="Deal notes..." value={dealNotes} onChange={(e) => setDealNotes(e.target.value)} className="min-h-[70px] text-xs rounded-lg resize-none" />
                 </div>
               </TabsContent>
@@ -710,7 +710,7 @@ function DeskingContent() {
                   {dealLog.map(l => (
                     <div key={l.id} className="flex items-start gap-2 text-[11px] p-1.5 rounded-md bg-slate-800/40">
                       <CircleDot className="w-3 h-3 text-indigo-400 mt-0.5 shrink-0" />
-                      <div className="min-w-0"><p className="text-slate-300 truncate">{l.action}</p><p className="text-[10px] text-slate-500">{l.timestamp}</p></div>
+                      <div className="min-w-0"><p className="text-slate-700 dark:text-slate-300 truncate">{l.action}</p><p className="text-[10px] text-slate-500">{l.timestamp}</p></div>
                     </div>
                   ))}
                 </div>
@@ -721,9 +721,9 @@ function DeskingContent() {
 
         {/* RIGHT SIDEBAR 4 cols */}
         <div className="xl:col-span-4 min-w-0 overflow-hidden">
-          <Card className="border-slate-700/50 rounded-xl overflow-hidden bg-slate-900 xl:sticky xl:top-4">
-            <div className="p-3 border-b border-slate-800 flex items-center justify-between">
-              <h3 className="text-sm font-semibold text-white flex items-center gap-2"><Calculator className="w-4 h-4 text-indigo-400" />Calculator</h3>
+          <Card className="border-slate-200 dark:border-slate-700/50 rounded-xl overflow-hidden bg-slate-50 dark:bg-slate-900 xl:sticky xl:top-4">
+            <div className="p-3 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-white flex items-center gap-2"><Calculator className="w-4 h-4 text-indigo-400" />Calculator</h3>
               <Badge className="bg-emerald-500/20 text-emerald-400 border-0 text-[10px]">Live</Badge>
             </div>
             <div className="p-3 space-y-3">
@@ -742,39 +742,39 @@ function DeskingContent() {
                 <SRow label="Fees" val={totalFees} />
                 <SRow label="Tax" val={totalTax} />
                 {fiProductTotal > 0 && <SRow label="F&I Products" val={fiProductTotal} />}
-                <div className="border-t border-slate-700 pt-1.5 flex justify-between"><span className="text-slate-300 font-medium">Total Due</span><span className="font-semibold text-white">${totalDue.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span></div>
+                <div className="border-t border-slate-200 dark:border-slate-700 pt-1.5 flex justify-between"><span className="text-slate-600 dark:text-slate-300 font-medium">Total Due</span><span className="font-semibold text-slate-900 dark:text-white">${totalDue.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span></div>
                 <SRow label="Down Payment" val={-(cashDown + deferredDown)} green />
-                <div className="border-t border-slate-700 pt-1.5 flex justify-between"><span className="text-slate-300 font-medium">Amt Financed</span><span className="font-bold text-white">${amountFinanced.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span></div>
+                <div className="border-t border-slate-200 dark:border-slate-700 pt-1.5 flex justify-between"><span className="text-slate-600 dark:text-slate-300 font-medium">Amt Financed</span><span className="font-bold text-slate-900 dark:text-white">${amountFinanced.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span></div>
               </div>
 
               {/* Profit */}
-              <div className="pt-3 border-t border-slate-800 space-y-1.5 text-xs">
+              <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-1.5 text-xs">
                 <p className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">Profit</p>
-                <div className="flex justify-between"><span className="text-slate-500">Front</span><span className={cn("font-medium tabular-nums", frontGross >= 0 ? "text-white" : "text-red-400")}>${frontGross.toLocaleString()}</span></div>
-                <div className="flex justify-between"><span className="text-slate-500">Back (F&I)</span><span className="text-white font-medium tabular-nums">${fiProfit.toLocaleString()}</span></div>
-                <div className="flex justify-between"><span className="text-slate-500">Reserve</span><span className="text-white font-medium tabular-nums">${reserveProfit.toFixed(0)}</span></div>
-                <div className="flex justify-between pt-1.5 border-t border-slate-700"><span className="font-semibold text-emerald-400">Total Gross</span><span className="text-lg font-bold text-emerald-400 tabular-nums">${totalGross.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span></div>
+                <div className="flex justify-between"><span className="text-slate-500">Front</span><span className={cn("font-medium tabular-nums", frontGross >= 0 ? "text-slate-900 dark:text-white" : "text-red-400")}>${frontGross.toLocaleString()}</span></div>
+                <div className="flex justify-between"><span className="text-slate-500">Back (F&I)</span><span className="text-slate-900 dark:text-white font-medium tabular-nums">${fiProfit.toLocaleString()}</span></div>
+                <div className="flex justify-between"><span className="text-slate-500">Reserve</span><span className="text-slate-900 dark:text-white font-medium tabular-nums">${reserveProfit.toFixed(0)}</span></div>
+                <div className="flex justify-between pt-1.5 border-t border-slate-200 dark:border-slate-700"><span className="font-semibold text-emerald-600 dark:text-emerald-400">Total Gross</span><span className="text-lg font-bold text-emerald-600 dark:text-emerald-400 tabular-nums">${totalGross.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span></div>
               </div>
 
               {/* PVR */}
-              <div className="pt-3 border-t border-slate-800 grid grid-cols-3 gap-1.5 text-center">
-                <div className="p-1.5 rounded-lg bg-slate-800"><p className="text-[9px] text-slate-500">Front</p><p className="text-xs font-bold text-white">${frontGross.toLocaleString()}</p></div>
-                <div className="p-1.5 rounded-lg bg-slate-800"><p className="text-[9px] text-slate-500">Back</p><p className="text-xs font-bold text-white">${backGross.toFixed(0)}</p></div>
-                <div className="p-1.5 rounded-lg bg-slate-800"><p className="text-[9px] text-slate-500">Total</p><p className="text-xs font-bold text-emerald-400">${totalGross.toFixed(0)}</p></div>
+              <div className="pt-3 border-t border-slate-200 dark:border-slate-800 grid grid-cols-3 gap-1.5 text-center">
+                <div className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800"><p className="text-[9px] text-slate-500">Front</p><p className="text-xs font-bold text-slate-900 dark:text-white">${frontGross.toLocaleString()}</p></div>
+                <div className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800"><p className="text-[9px] text-slate-500">Back</p><p className="text-xs font-bold text-slate-900 dark:text-white">${backGross.toFixed(0)}</p></div>
+                <div className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800"><p className="text-[9px] text-slate-500">Total</p><p className="text-xs font-bold text-emerald-600 dark:text-emerald-400">${totalGross.toFixed(0)}</p></div>
               </div>
 
               {/* Lender info */}
               {selectedLender && (
-                <div className="pt-2 border-t border-slate-800 text-xs">
+                <div className="pt-2 border-t border-slate-200 dark:border-slate-800 text-xs">
                   <p className="text-[10px] text-slate-500">Lender</p>
-                  <p className="text-white font-medium">{selectedLender}</p>
+                  <p className="text-slate-900 dark:text-white font-medium">{selectedLender}</p>
                   {approvalNumber && <p className="text-[10px] text-slate-500">#{approvalNumber}</p>}
                 </div>
               )}
 
               {/* Actions */}
-              <div className="pt-3 border-t border-slate-800 grid grid-cols-2 gap-2">
-                <Button size="sm" variant="outline" className="h-8 text-[11px] border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg gap-1"><Send className="w-3 h-3" />Submit</Button>
+              <div className="pt-3 border-t border-slate-200 dark:border-slate-800 grid grid-cols-2 gap-2">
+                <Button size="sm" variant="outline" className="h-8 text-[11px] border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg gap-1"><Send className="w-3 h-3" />Submit</Button>
                 <Button size="sm" className="h-8 text-[11px] bg-indigo-600 hover:bg-indigo-700 rounded-lg gap-1"><Printer className="w-3 h-3" />Print WS</Button>
               </div>
             </div>
@@ -792,13 +792,13 @@ function CBar({ icon, label, status }: { icon: React.ReactNode; label: string; s
 }
 
 function MiniStat({ label, val }: { label: string; val: string }) {
-  return <div className="p-1 rounded-md bg-slate-800/40 border border-slate-700/50 text-center"><p className="text-[9px] text-slate-500">{label}</p><p className="text-[11px] font-semibold text-slate-200">{val}</p></div>;
+  return <div className="p-1 rounded-md bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 text-center"><p className="text-[9px] text-slate-500">{label}</p><p className="text-[11px] font-semibold text-slate-800 dark:text-slate-200">{val}</p></div>;
 }
 
 function StatBox({ label, value, colored, green, reverse }: { label: string; value: number; colored?: boolean; green?: boolean; reverse?: boolean }) {
   const pos = reverse ? value <= 0 : value >= 0;
-  const clr = green ? "text-emerald-600" : colored ? (pos ? "text-emerald-600" : "text-red-600") : "text-slate-100";
-  return <div className="p-2 rounded-lg bg-slate-800/40 border border-slate-700/50 text-center"><p className="text-[10px] text-slate-500">{label}</p><p className={cn("text-sm font-bold", clr)}>{value >= 0 ? '' : '-'}${Math.abs(value).toLocaleString()}</p></div>;
+  const clr = green ? "text-emerald-600" : colored ? (pos ? "text-emerald-600" : "text-red-600") : "text-slate-900 dark:text-slate-100";
+  return <div className="p-2 rounded-lg bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 text-center"><p className="text-[10px] text-slate-500">{label}</p><p className={cn("text-sm font-bold", clr)}>{value >= 0 ? '' : '-'}${Math.abs(value).toLocaleString()}</p></div>;
 }
 
 function NumInput({ label, prefix, suffix, value, onChange, step, highlight }: { label: string; prefix?: string; suffix?: string; value: number; onChange: (v: number) => void; step?: number; highlight?: boolean; }) {
@@ -816,6 +816,6 @@ function NumInput({ label, prefix, suffix, value, onChange, step, highlight }: {
 
 function SRow({ label, val, green, red }: { label: string; val: number; green?: boolean; red?: boolean }) {
   const neg = val < 0;
-  const clr = green || neg ? "text-emerald-400" : red ? "text-red-400" : "text-white";
+  const clr = green || neg ? "text-emerald-600 dark:text-emerald-400" : red ? "text-red-500 dark:text-red-400" : "text-slate-900 dark:text-white";
   return <div className="flex justify-between items-center"><span className="text-slate-500 truncate">{label}</span><span className={cn("font-medium tabular-nums shrink-0 ml-2", clr)}>{neg ? '-' : ''}${Math.abs(val).toLocaleString(undefined, { maximumFractionDigits: 0 })}</span></div>;
 }
